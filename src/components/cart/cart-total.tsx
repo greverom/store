@@ -5,8 +5,8 @@ import { useCart } from "@/context/cart.context"
 
 export default function CartTotal() {
   const { subtotal } = useCart()
-  const shipping = subtotal > 0 ? 5.99 : 0
-  const tax = subtotal * 0.16
+  const shipping = subtotal > 0 ? 2.50 : 0
+  const tax = subtotal * 0.15
   const total = subtotal + shipping + tax
 
   return (
@@ -25,7 +25,7 @@ export default function CartTotal() {
         </div>
 
         <div className="flex justify-between">
-          <span className="text-gray-600">Impuestos (16%)</span>
+          <span className="text-gray-600">Impuestos (15%)</span>
           <span>${tax.toFixed(2)}</span>
         </div>
 

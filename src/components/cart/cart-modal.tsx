@@ -1,13 +1,12 @@
 "use client"
 
 import { useState } from "react"
+import { useCart } from "@/context/cart.context"
 import { X } from "lucide-react"
-
 import CartSummary from "./cart-summary"
 import CartTotal from "./cart-total"
 import PaymentMethod from "./payment-method"
 import ShippingAddress from "./shipping-address"
-import { useCart } from "@/context/cart.context"
 
 type Step = "summary" | "shipping" | "payment" | "confirmation"
 
@@ -19,7 +18,7 @@ export default function CartModal({
   onClose: () => void
 }) {
   const [step, setStep] = useState<Step>("summary")
-  const { items, subtotal } = useCart()
+  const { items, subtotal, clearCart } = useCart()
 
   if (!isOpen) return null
 
@@ -36,8 +35,8 @@ export default function CartModal({
   }
 
   const handleCheckout = () => {
-    // Aquí iría la lógica para procesar el pago
-    alert("¡Gracias por tu compra!")
+    clearCart()
+    setStep("summary")
     onClose()
   }
 
@@ -71,6 +70,9 @@ export default function CartModal({
                   <CartSummary />
                   <div className="text-right font-semibold mt-4">
                     Subtotal: ${subtotal.toFixed(2)}
+                  </div>
+                  <div className="mt-6">
+                    <CartTotal />
                   </div>
                 </>
               )}

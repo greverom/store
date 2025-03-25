@@ -116,7 +116,7 @@ export default function PaymentMethod() {
           <p className="text-sm text-gray-600 mb-1">Banco: Banco Nacional</p>
           <p className="text-sm text-gray-600 mb-1">Titular: Mi Tienda S.A.</p>
           <p className="text-sm text-gray-600 mb-1">Cuenta: 1234-5678-9012-3456</p>
-          <p className="text-sm text-gray-600">CLABE: 012345678901234567</p>
+          <p className="text-sm text-gray-600">CLAVE: 012345678901234567</p>
           <p className="mt-4 text-sm text-gray-600">
             Una vez realizada la transferencia, envía el comprobante a pagos@mitienda.com
           </p>

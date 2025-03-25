@@ -8,10 +8,8 @@ export default function AddToCartButton({ product }: { product: Product }) {
   const { addItem } = useCart()
 
   const handleAddToCart = () => {
-    addItem({
-      ...product,
-      cantidad: 1,
-    })
+    console.log("Agregando al carrito...")
+    addItem(product) 
   }
 
   return (
