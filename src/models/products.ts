@@ -13,3 +13,6 @@ export type Product = {
 export type CartItem = Product & {
     cantidad: number
   }
+
+
+  

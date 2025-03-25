@@ -41,7 +41,7 @@ export default function CartModal({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/30">
       <div className="relative bg-white rounded-lg shadow-xl w-full max-w-3xl max-h-[90vh] overflow-hidden flex flex-col">
         <div className="flex justify-between items-center p-4 border-b">
           <h2 className="text-xl font-semibold">
