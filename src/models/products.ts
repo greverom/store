@@ -1,5 +1,5 @@
 
-export type ProductCategory = "belleza" | "dulces"
+export type ProductCategory = "belleza" | "dulces" | string
 
 export type Product = {
   id: number

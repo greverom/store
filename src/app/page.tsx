@@ -4,10 +4,12 @@ import CategorySelector from "@/components/home/category-selector"
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-gray-50">
       <Hero />
-      <IntroSection />
-      <CategorySelector />
+      <div className="-mt-[350px] z-10 relative">
+        <CategorySelector />
+        <IntroSection />
+      </div>
     </main>
   )
 }

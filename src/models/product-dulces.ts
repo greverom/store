@@ -24,5 +24,21 @@ export const productosDulces: Product[] = [
     precio: 22.99,
     imagen: "/placeholder.svg?height=400&width=400",
     categoria: "dulces",
+  },
+  {
+    id: 104,
+    nombre: "Cheesecake de Frambuesa",
+    descripcion: "Cremoso cheesecake con coulis de frambuesa natural",
+    precio: 26.99,
+    imagen: "/placeholder.svg?height=400&width=400",
+    categoria: "dulces",
+  },
+  {
+    id: 105,
+    nombre: "Brownies de Nuez",
+    descripcion: "Brownies artesanales con trozos de nuez",
+    precio: 20.99,
+    imagen: "/placeholder.svg?height=400&width=400",
+    categoria: "dulces",
   }
 ]
