@@ -1,4 +1,4 @@
-// next.config.js
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -22,7 +22,12 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'www.purpicks.com',
         pathname: '/**',
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.themealdb.com',
+        pathname: '/**',
+      },
     ],
   },
 }

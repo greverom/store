@@ -35,7 +35,7 @@ export default function Testimonios() {
               <div className="flex items-center mb-4">
                 <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4">
                   <Image
-                    src={testimonio.imagen || "/placeholder.svg"}
+                    src={ "/images/imagen fondo cindy.jpeg"}
                     alt={testimonio.nombre}
                     fill
                     className="object-cover"
@@ -43,7 +43,7 @@ export default function Testimonios() {
                 </div>
                 <h3 className="font-semibold">{testimonio.nombre}</h3>
               </div>
-              <p className="text-gray-600 italic">"{testimonio.texto}"</p>
+              <p className="text-gray-600 italic">&quot;{testimonio.texto}&quot;</p>
             </div>
           ))}
         </div>

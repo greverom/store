@@ -47,4 +47,5 @@ export default function ProductCard({ product }: { product: BeautyProduct }) {
       </div>
     </div>
   )
+  
 }
