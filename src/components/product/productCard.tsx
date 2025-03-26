@@ -11,9 +11,9 @@ export default function ProductCard({ product }: { product: BeautyProduct }) {
   if (!imageValid || !product.image_link) return null
 
   return (
-    <div className="bg-white rounded-lg border border-gray-300 shadow-md overflow-hidden flex flex-col h-full">
+    <div className="bg-white rounded-lg border border-gray-300 shadow-md overflow-hidden">
 
-      <div className="relative h-50 w-full">
+      <div className="relative h-44 w-full">
         <Image
           src={product.image_link}
           alt={product.name}
@@ -27,25 +27,26 @@ export default function ProductCard({ product }: { product: BeautyProduct }) {
       </div>
 
       <div className="p-3">
-        <h3 className="text-xl font-semibold mb-2 line-clamp-1">{product.name}</h3>
-        <p className="text-gray-600 text-sm mb-5 line-clamp-2">
+        <h3 className="text-base font-semibold mb-1 line-clamp-1">{product.name}</h3>
+        <p className="text-gray-600 text-xs mb-3 line-clamp-2">
           {product.description || "Sin descripción"}
         </p>
         <div className="flex justify-between items-center">
-          <span className="text-md font-bold">${parseFloat(product.price || "0").toFixed(2)}</span>
-          <AddToCartButton
-            product={{
-              id: product.id,
-              nombre: product.name,
-              descripcion: product.description || "Sin descripción",
-              precio: parseFloat(product.price) || 0,
-              imagen: product.image_link,
-              categoria: product.product_type || "belleza",
-            }}
-          />
+          <span className="text-sm font-bold">${parseFloat(product.price || "0").toFixed(2)}</span>
+          <div className="scale-[0.9]">
+            <AddToCartButton
+              product={{
+                id: product.id,
+                nombre: product.name,
+                descripcion: product.description || "Sin descripción",
+                precio: parseFloat(product.price) || 0,
+                imagen: product.image_link,
+                categoria: product.product_type || "belleza",
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
   )
-  
 }

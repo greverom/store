@@ -25,7 +25,7 @@ export default function ProductosDestacados() {
         <div className="overflow-x-auto pb-4">
           <div className="flex gap-5 md:gap-5 w-max px-5 md:px-0">
             {products.map((producto) => (
-              <div key={producto.id} className="w-[250px] flex-shrink-0">
+              <div key={producto.id} className="w-[200px] flex-shrink-0">
                 <ProductCard product={producto} />
               </div>
             ))}
