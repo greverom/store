@@ -11,7 +11,7 @@ export default function ProductCard({ product }: { product: BeautyProduct }) {
   if (!imageValid || !product.image_link) return null
 
   return (
-    <div className="bg-white rounded-lg border border-gray-300 shadow-md overflow-hidden">
+    <div className="bg-white rounded-lg border border-gray-300 shadow-md overflow-hidden max-w-[250px]">
 
       <div className="relative h-43 w-full">
         <Image
@@ -26,7 +26,7 @@ export default function ProductCard({ product }: { product: BeautyProduct }) {
         />
       </div>
 
-      <div className="p-2 md:p-3">
+      <div className="p-1 md:p-2">
         <h3 className="text-base font-semibold mb-1 line-clamp-1">{product.name}</h3>
         <p className="text-gray-600 text-xs mb-3 line-clamp-2">
           {product.description || "Sin descripción"}

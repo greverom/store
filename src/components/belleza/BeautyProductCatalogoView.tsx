@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react"
 import ProductCard from "@/components/product/productCard"
 import BeautyCategorySelector from "@/components/belleza/BeautyCategorySelector"
+import PriceSlider from "@/components/belleza/PriceSlider"
 import { BeautyProduct } from "@/models/product-belleza"
 import { getAllBeautyProducts } from "@/services/beautyProductService"
+import { usePriceFilter } from "@/hooks/usePriceFilter"
 
 export default function BellezaPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
@@ -14,9 +16,17 @@ export default function BellezaPage() {
   const [categoryPage, setCategoryPage] = useState(1)
   const [isLoading, setIsLoading] = useState(true)
 
+  const {
+    minPrice,
+    maxPrice,
+    selectedPrice,
+    setSelectedPrice
+  } = usePriceFilter(allProducts)
+
   const itemsPerPage = 20
   const categoryItemsPerPage = 8
 
+  // Cargar todos los productos
   useEffect(() => {
     setIsLoading(true)
     getAllBeautyProducts()
@@ -30,30 +40,43 @@ export default function BellezaPage() {
       })
   }, [])
 
+  // Filtrado por categoría y precio
   useEffect(() => {
-    if (selectedCategory) {
-      const filtered = allProducts.filter((p) => p.category === selectedCategory)
-      setFilteredProducts(filtered)
-      setCategoryPage(1)
-    }
-  }, [selectedCategory, allProducts])
+    let filtered = allProducts
 
-  const totalPages = Math.ceil(allProducts.length / itemsPerPage)
-  const totalCategoryPages = Math.ceil(filteredProducts.length / categoryItemsPerPage)
+    if (selectedCategory) {
+      filtered = filtered.filter((p) => p.category === selectedCategory)
+    }
+
+    filtered = filtered.filter((p) => parseFloat(p.price) <= selectedPrice)
+
+    setFilteredProducts(filtered)
+    setPage(1)
+    setCategoryPage(1)
+  }, [selectedCategory, allProducts, selectedPrice])
+
+  const totalPages = Math.ceil(
+    allProducts.filter(p => parseFloat(p.price) <= selectedPrice).length / itemsPerPage
+  )
+
+  const totalCategoryPages = Math.ceil(
+    filteredProducts.length / categoryItemsPerPage
+  )
 
   const productsToRender = selectedCategory
     ? filteredProducts.slice(
         (categoryPage - 1) * categoryItemsPerPage,
         categoryPage * categoryItemsPerPage
       )
-    : allProducts.slice((page - 1) * itemsPerPage, page * itemsPerPage)
+    : allProducts
+        .filter(p => parseFloat(p.price) <= selectedPrice)
+        .slice((page - 1) * itemsPerPage, page * itemsPerPage)
 
   return (
     <section className="py-16 bg-white min-h-screen">
-      <div className="max-w-8xl mx-auto px-3 lg:px-8">
-
-        <div className="flex flex-col lg:flex-row gap-11">
-
+      <div className="max-w-8xl mx-auto px-5 lg:px-8">
+        <div className="flex flex-col lg:flex-row gap-10">
+          {/* Sidebar */}
           <aside className="lg:w-1/5">
             <BeautyCategorySelector
               selectedCategory={selectedCategory}
@@ -62,12 +85,20 @@ export default function BellezaPage() {
                 setPage(1)
               }}
             />
+
+            {/* Slider de precio */}
+            <PriceSlider
+              min={minPrice}
+              max={maxPrice}
+              value={selectedPrice}
+              onChange={setSelectedPrice}
+            />
           </aside>
 
-          <div className="lg:w-3/3  px-0 md:px-5 lg:px-8">
-            <h2 className="text-3xl md:text-3xl font-bold text-center mb-12">
-              Productos de Belleza
-            </h2>
+          {/* Productos */}
+          <div className="lg:w-3/3 px-0 md:px-5 lg:px-8">
+            <h2 className="text-3xl font-bold text-center mb-12">Productos de Belleza</h2>
+
             {isLoading ? (
               <p className="text-center py-10">Cargando productos...</p>
             ) : (
@@ -78,6 +109,7 @@ export default function BellezaPage() {
                   ))}
                 </div>
 
+                {/* Paginación general */}
                 {!selectedCategory && totalPages > 1 && (
                   <div className="flex justify-center mt-8 gap-4">
                     <button
@@ -100,6 +132,7 @@ export default function BellezaPage() {
                   </div>
                 )}
 
+                {/* Paginación por categoría */}
                 {selectedCategory && totalCategoryPages > 1 && (
                   <div className="flex justify-center mt-8 gap-4">
                     <button
