@@ -2,29 +2,47 @@
 
 import { useEffect, useState } from "react"
 import ProductCard from "@/components/product/productCard"
-import { BeautyProduct } from "@/models/product-belleza"
-import { getBeautyProducts } from "@/services/beautyProductService"
 import BeautyCategorySelector from "@/components/belleza/BeautyCategorySelector"
+import { BeautyProduct } from "@/models/product-belleza"
+import { getAllBeautyProducts } from "@/services/beautyProductService"
 
 export default function BellezaPage() {
-  const [products, setProducts] = useState<BeautyProduct[]>([])
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+  const [allProducts, setAllProducts] = useState<BeautyProduct[]>([])
+  const [filteredProducts, setFilteredProducts] = useState<BeautyProduct[]>([])
+  const [page, setPage] = useState(1)
+  const [isLoading, setIsLoading] = useState(true)
+
+  const itemsPerPage = 40
 
   useEffect(() => {
-    getBeautyProducts().then((data) => {
-      const filtered = data.filter(
-        (product: BeautyProduct) =>
-          product.image_link &&
-          product.price &&
-          product.name
-      )
-      setProducts(filtered)
-    })
+    setIsLoading(true)
+    getAllBeautyProducts()
+      .then((data) => {
+        setAllProducts(data)
+        setIsLoading(false)
+      })
+      .catch((err) => {
+        console.error("Error al cargar productos:", err)
+        setIsLoading(false)
+      })
   }, [])
 
-  const filteredProducts = selectedCategory
-    ? products.filter((p) => p.category === selectedCategory)
-    : products
+  useEffect(() => {
+    if (selectedCategory) {
+      const filtered = allProducts.filter((p) => p.category === selectedCategory)
+      setFilteredProducts(filtered)
+      setPage(1) 
+    }
+  }, [selectedCategory, allProducts])
+
+  const productsToRender = selectedCategory
+    ? filteredProducts
+    : allProducts.slice((page - 1) * itemsPerPage, page * itemsPerPage)
+
+  const totalPages = selectedCategory
+    ? 1 
+    : Math.ceil(allProducts.length / itemsPerPage)
 
   return (
     <section className="py-16 bg-white min-h-screen">
@@ -33,14 +51,45 @@ export default function BellezaPage() {
 
         <BeautyCategorySelector
           selectedCategory={selectedCategory}
-          onCategorySelect={setSelectedCategory}
+          onCategorySelect={(cat) => {
+            setSelectedCategory(cat)
+            setPage(1)
+          }}
         />
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        {isLoading ? (
+          <p className="text-center py-10">Cargando productos...</p>
+        ) : (
+          <>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {productsToRender.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+
+            {!selectedCategory && totalPages > 1 && (
+              <div className="flex justify-center mt-8 gap-4">
+                <button
+                  onClick={() => setPage(page - 1)}
+                  disabled={page <= 1}
+                  className="px-4 py-2 border rounded disabled:opacity-50"
+                >
+                  Anterior
+                </button>
+                <span className="text-sm font-medium px-2">
+                  Página {page} de {totalPages}
+                </span>
+                <button
+                  onClick={() => setPage(page + 1)}
+                  disabled={page >= totalPages}
+                  className="px-4 py-2 border rounded disabled:opacity-50"
+                >
+                  Siguiente
+                </button>
+              </div>
+            )}
+          </>
+        )}
       </div>
     </section>
   )
