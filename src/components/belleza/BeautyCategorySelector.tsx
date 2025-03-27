@@ -1,11 +1,10 @@
 "use client"
+import { useBeautyCategories } from "@/hooks/useBeautyCategories"
 
 type Props = {
   selectedCategory: string | null
   onCategorySelect: (category: string | null) => void
 }
-
-import { useBeautyCategories } from "@/hooks/useBeautyCategories"
 
 export default function BeautyCategorySelector({
   selectedCategory,

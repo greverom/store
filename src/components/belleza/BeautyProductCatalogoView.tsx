@@ -1,8 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import ProductCard from "@/components/product/productCard"
-import BeautyCategorySelector from "@/components/belleza/BeautyCategorySelector"
+import   ProductCard from "@/components/product/productCard"
+import   BeautyCategorySelector from "@/components/belleza/BeautyCategorySelector"
 import { BeautyProduct } from "@/models/product-belleza"
 import { getAllBeautyProducts } from "@/services/beautyProductService"
 
@@ -14,8 +14,8 @@ export default function BellezaPage() {
   const [categoryPage, setCategoryPage] = useState(1)
   const [isLoading, setIsLoading] = useState(true)
 
-  const itemsPerPage = 40
-  const categoryItemsPerPage = 10
+  const itemsPerPage = 20
+  const categoryItemsPerPage = 8
 
   useEffect(() => {
     setIsLoading(true)
