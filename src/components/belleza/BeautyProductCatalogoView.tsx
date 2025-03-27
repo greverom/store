@@ -11,9 +11,11 @@ export default function BellezaPage() {
   const [allProducts, setAllProducts] = useState<BeautyProduct[]>([])
   const [filteredProducts, setFilteredProducts] = useState<BeautyProduct[]>([])
   const [page, setPage] = useState(1)
+  const [categoryPage, setCategoryPage] = useState(1)
   const [isLoading, setIsLoading] = useState(true)
 
   const itemsPerPage = 40
+  const categoryItemsPerPage = 10
 
   useEffect(() => {
     setIsLoading(true)
@@ -32,17 +34,19 @@ export default function BellezaPage() {
     if (selectedCategory) {
       const filtered = allProducts.filter((p) => p.category === selectedCategory)
       setFilteredProducts(filtered)
-      setPage(1) 
+      setCategoryPage(1) 
     }
   }, [selectedCategory, allProducts])
 
-  const productsToRender = selectedCategory
-    ? filteredProducts
-    : allProducts.slice((page - 1) * itemsPerPage, page * itemsPerPage)
+  const totalPages = Math.ceil(allProducts.length / itemsPerPage)
+  const totalCategoryPages = Math.ceil(filteredProducts.length / categoryItemsPerPage)
 
-  const totalPages = selectedCategory
-    ? 1 
-    : Math.ceil(allProducts.length / itemsPerPage)
+  const productsToRender = selectedCategory
+    ? filteredProducts.slice(
+        (categoryPage - 1) * categoryItemsPerPage,
+        categoryPage * categoryItemsPerPage
+      )
+    : allProducts.slice((page - 1) * itemsPerPage, page * itemsPerPage)
 
   return (
     <section className="py-16 bg-white min-h-screen">
@@ -67,6 +71,7 @@ export default function BellezaPage() {
               ))}
             </div>
 
+
             {!selectedCategory && totalPages > 1 && (
               <div className="flex justify-center mt-8 gap-4">
                 <button
@@ -82,6 +87,29 @@ export default function BellezaPage() {
                 <button
                   onClick={() => setPage(page + 1)}
                   disabled={page >= totalPages}
+                  className="px-4 py-2 border rounded disabled:opacity-50"
+                >
+                  Siguiente
+                </button>
+              </div>
+            )}
+
+
+            {selectedCategory && totalCategoryPages > 1 && (
+              <div className="flex justify-center mt-8 gap-4">
+                <button
+                  onClick={() => setCategoryPage(categoryPage - 1)}
+                  disabled={categoryPage <= 1}
+                  className="px-4 py-2 border rounded disabled:opacity-50"
+                >
+                  Anterior
+                </button>
+                <span className="text-sm font-medium px-2">
+                  Página {categoryPage} de {totalCategoryPages}
+                </span>
+                <button
+                  onClick={() => setCategoryPage(categoryPage + 1)}
+                  disabled={categoryPage >= totalCategoryPages}
                   className="px-4 py-2 border rounded disabled:opacity-50"
                 >
                   Siguiente
