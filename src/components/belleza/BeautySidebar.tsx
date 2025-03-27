@@ -21,7 +21,7 @@ export default function BeautySidebar({
   onPriceChange
 }: Props) {
   return (
-    <aside className="lg:w-1/5 lg:sticky lg:top-32 h-fit">
+    <aside className="lg:w-1/5 self-start sticky top-35">
       <BeautyCategorySelector
         selectedCategory={selectedCategory}
         onCategorySelect={onCategorySelect}

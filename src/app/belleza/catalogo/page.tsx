@@ -1,10 +1,14 @@
 "use client"
-import BeautyProductView from "@/components/belleza/BeautyProductCatalogoView"
+
+import { FilteredProductsProvider } from "@/context/FilteredProductsContext"
+import BeautyCatalogLayout from "@/components/belleza/BeautyCatalogLayout"
 
 export default function BellezaPage() {
   return (
-    <section className="py-16 bg-white min-h-screen">
-      <BeautyProductView />
-    </section>
+    <FilteredProductsProvider>
+      <div className="min-h-screen bg-white">
+        <BeautyCatalogLayout />
+      </div>
+    </FilteredProductsProvider>
   )
 }
