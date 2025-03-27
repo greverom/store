@@ -3,6 +3,7 @@ import { getBeautyCategories } from "@/services/beautyCategoriesService"
 
 export const useBeautyCategories = () => {
   const [categories, setCategories] = useState<string[]>([])
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null) 
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -12,5 +13,10 @@ export const useBeautyCategories = () => {
       .finally(() => setLoading(false))
   }, [])
 
-  return { categories, loading }
+  return {
+    categories, 
+    loading, 
+    selectedCategory,
+    setSelectedCategory, 
+  }
 }

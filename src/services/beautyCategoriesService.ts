@@ -9,7 +9,7 @@ export const getBeautyCategories = async (): Promise<string[]> => {
     const data: BeautyProduct[] = await res.json()
 
     const categories = data
-      .map((product) => product.product_type)
+      .map((product) => product.category)
       .filter((type): type is string => !!type)
 
     const uniqueCategories = [...new Set(categories)]
