@@ -13,7 +13,7 @@ export default function ProductCard({ product }: { product: BeautyProduct }) {
   return (
     <div className="bg-white rounded-lg border border-gray-300 shadow-md overflow-hidden">
 
-      <div className="relative h-44 w-full">
+      <div className="relative h-43 w-full">
         <Image
           src={product.image_link}
           alt={product.name}
@@ -26,14 +26,14 @@ export default function ProductCard({ product }: { product: BeautyProduct }) {
         />
       </div>
 
-      <div className="p-3">
+      <div className="p-2 md:p-3">
         <h3 className="text-base font-semibold mb-1 line-clamp-1">{product.name}</h3>
         <p className="text-gray-600 text-xs mb-3 line-clamp-2">
           {product.description || "Sin descripción"}
         </p>
         <div className="flex justify-between items-center">
           <span className="text-sm font-bold">${parseFloat(product.price || "0").toFixed(2)}</span>
-          <div className="scale-[0.9]">
+          <div className="scale-[0.8]">
             <AddToCartButton
               product={{
                 id: product.id,
