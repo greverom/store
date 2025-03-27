@@ -1,76 +1,27 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import ProductCard from "@/components/product/productCard"
 import BeautyCategorySelector from "@/components/belleza/BeautyCategorySelector"
 import PriceSlider from "@/components/belleza/PriceSlider"
-import { BeautyProduct } from "@/models/product-belleza"
-import { getAllBeautyProducts } from "@/services/beautyProductService"
-import { usePriceFilter } from "@/hooks/usePriceFilter"
+import { useFilteredProducts } from "@/hooks/useFilteredProducts"
 
 export default function BellezaPage() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
-  const [allProducts, setAllProducts] = useState<BeautyProduct[]>([])
-  const [filteredProducts, setFilteredProducts] = useState<BeautyProduct[]>([])
-  const [page, setPage] = useState(1)
-  const [categoryPage, setCategoryPage] = useState(1)
-  const [isLoading, setIsLoading] = useState(true)
-
   const {
+    productsToRender,
+    isLoading,
+    selectedCategory,
+    setSelectedCategory,
     minPrice,
     maxPrice,
     selectedPrice,
-    setSelectedPrice
-  } = usePriceFilter(allProducts)
-
-  const itemsPerPage = 20
-  const categoryItemsPerPage = 8
-
-  // Cargar todos los productos
-  useEffect(() => {
-    setIsLoading(true)
-    getAllBeautyProducts()
-      .then((data) => {
-        setAllProducts(data)
-        setIsLoading(false)
-      })
-      .catch((err) => {
-        console.error("Error al cargar productos:", err)
-        setIsLoading(false)
-      })
-  }, [])
-
-  // Filtrado por categoría y precio
-  useEffect(() => {
-    let filtered = allProducts
-
-    if (selectedCategory) {
-      filtered = filtered.filter((p) => p.category === selectedCategory)
-    }
-
-    filtered = filtered.filter((p) => parseFloat(p.price) <= selectedPrice)
-
-    setFilteredProducts(filtered)
-    setPage(1)
-    setCategoryPage(1)
-  }, [selectedCategory, allProducts, selectedPrice])
-
-  const totalPages = Math.ceil(
-    allProducts.filter(p => parseFloat(p.price) <= selectedPrice).length / itemsPerPage
-  )
-
-  const totalCategoryPages = Math.ceil(
-    filteredProducts.length / categoryItemsPerPage
-  )
-
-  const productsToRender = selectedCategory
-    ? filteredProducts.slice(
-        (categoryPage - 1) * categoryItemsPerPage,
-        categoryPage * categoryItemsPerPage
-      )
-    : allProducts
-        .filter(p => parseFloat(p.price) <= selectedPrice)
-        .slice((page - 1) * itemsPerPage, page * itemsPerPage)
+    setSelectedPrice,
+    page,
+    setPage,
+    categoryPage,
+    setCategoryPage,
+    totalPages,
+    totalCategoryPages,
+  } = useFilteredProducts()
 
   return (
     <section className="py-16 bg-white min-h-screen">
@@ -86,7 +37,6 @@ export default function BellezaPage() {
               }}
             />
 
-            {/* Slider de precio */}
             <PriceSlider
               min={minPrice}
               max={maxPrice}
@@ -109,8 +59,8 @@ export default function BellezaPage() {
                   ))}
                 </div>
 
-                {/* Paginación general */}
-                {!selectedCategory && totalPages > 1 && (
+                {/* Paginación */}
+                {selectedCategory === null && totalPages > 1 && (
                   <div className="flex justify-center mt-8 gap-4">
                     <button
                       onClick={() => setPage(page - 1)}
@@ -132,7 +82,6 @@ export default function BellezaPage() {
                   </div>
                 )}
 
-                {/* Paginación por categoría */}
                 {selectedCategory && totalCategoryPages > 1 && (
                   <div className="flex justify-center mt-8 gap-4">
                     <button
