@@ -17,9 +17,9 @@ export default function ProductCard({ product }: { product: BeautyProduct }) {
   }
 
   return (
-    <div  onClick={goToDetail} className="bg-white rounded-lg border border-gray-300 shadow-md overflow-hidden max-w-[240px] scale-[0.97] lg:scale-100">
+    <div className="bg-white rounded-lg border border-gray-300 shadow-md overflow-hidden max-w-[240px] scale-[0.97] lg:scale-100">
 
-      <div className="relative h-55 w-full">
+      <div onClick={goToDetail} className="relative h-55 w-full">
         <Image
           src={product.image_link}
           alt={product.name}
@@ -49,6 +49,7 @@ export default function ProductCard({ product }: { product: BeautyProduct }) {
                 imagen: product.image_link,
                 categoria: product.product_type || "belleza",
               }}
+              onClick={(e) => e.stopPropagation()}
             />
           </div>
         </div>

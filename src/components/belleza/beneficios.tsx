@@ -1,52 +1,81 @@
-import { Shield, Heart, Star, Clock } from "lucide-react"
+"use client"
 
-const beneficios = [
-  {
-    id: 1,
-    titulo: "Productos Naturales",
-    descripcion: "Formulados con ingredientes de origen natural",
-    icono: Heart,
-  },
-  {
-    id: 2,
-    titulo: "Calidad Premium",
-    descripcion: "Rigurosos controles de calidad en cada producto",
-    icono: Star,
-  },
-  {
-    id: 3,
-    titulo: "Envío Rápido",
-    descripcion: "Recibe tus productos en 24-48 horas",
-    icono: Clock,
-  },
-  {
-    id: 4,
-    titulo: "Garantía de Satisfacción",
-    descripcion: "30 días de garantía en todos nuestros productos",
-    icono: Shield,
-  },
-]
+import { useRef } from "react"
+import { motion, useInView } from "framer-motion"
+import { Heart, Star, Clock } from "lucide-react"
 
-export default function Beneficios() {
+export default function BenefitsSection() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
+
+  const benefits = [
+    {
+      icon: Heart,
+      title: "Productos Naturales",
+      description: "Todos nuestros productos están hechos con ingredientes naturales y orgánicos.",
+    },
+    {
+      icon: Star,
+      title: "Calidad Premium",
+      description: "Garantizamos la más alta calidad en todos nuestros productos cosméticos.",
+    },
+    {
+      icon: Clock,
+      title: "Resultados Rápidos",
+      description: "Verás resultados visibles en tu piel en menos tiempo.",
+    },
+  ]
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  }
+
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Por Qué Elegirnos</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {beneficios.map((beneficio) => {
-            const IconComponent = beneficio.icono
+    <section className="py-16 px-4 bg-gray-50">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-12">Nuestros Beneficios</h2>
 
-            return (
-              <div key={beneficio.id} className="bg-white p-6 rounded-lg shadow-sm text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mb-4">
-                  <IconComponent className="w-6 h-6" />
+        <motion.div
+          ref={ref}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          {benefits.map((benefit, index) => (
+            <motion.div
+              key={index}
+              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
+              variants={itemVariants}
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="p-3 bg-primary/10 rounded-full mb-4">
+                  <benefit.icon className="w-8 h-8 text-pink-500" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{beneficio.titulo}</h3>
-                <p className="text-gray-600">{beneficio.descripcion}</p>
+                <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
+                <p className="text-gray-600">{benefit.description}</p>
               </div>
-            )
-          })}
-        </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   )
