@@ -21,18 +21,22 @@ export default function BeautySidebar({
   onPriceChange
 }: Props) {
   return (
-    <aside className="lg:w-1/5 self-start sticky top-35">
-      <BeautyCategorySelector
-        selectedCategory={selectedCategory}
-        onCategorySelect={onCategorySelect}
-      />
+    <aside className="w-full md:w-1/1 lg:w-1/5 self-start lg:sticky top-35">
+      <div className="flex flex-col gap-4 bg-gray-50 p-4 rounded-md shadow-sm">
+        <BeautyCategorySelector
+          selectedCategory={selectedCategory}
+          onCategorySelect={onCategorySelect}
+        />
 
-      <PriceSlider
-        min={minPrice}
-        max={maxPrice}
-        value={selectedPrice}
-        onChange={onPriceChange}
-      />
+        <div className="w-full max-w-md mx-auto">
+          <PriceSlider
+            min={minPrice}
+            max={maxPrice}
+            value={selectedPrice}
+            onChange={onPriceChange}
+          />
+        </div>
+      </div>
     </aside>
   )
 }

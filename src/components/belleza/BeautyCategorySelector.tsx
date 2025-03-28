@@ -23,13 +23,13 @@ export default function BeautyCategorySelector({
       </h2>
 
       {/* Grid en móviles, columna en escritorio */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 lg:flex lg:flex-col">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 lg:flex lg:flex-col">
         <button
           onClick={() => onCategorySelect(null)}
-          className={`border rounded-lg px-4 py-2 text-sm font-medium transition text-left ${
+          className={`border rounded-lg px-3 py-2 text-sm font-medium transition text-center lg:text-left ${
             selectedCategory === null
               ? "bg-primary text-white border-primary"
-              : "bg-white hover:text-white"
+              : "bg-white border-gray-200 hover:bg-primary hover:text-white"
           }`}
         >
           Ver todos
@@ -39,10 +39,10 @@ export default function BeautyCategorySelector({
           <button
             key={category}
             onClick={() => onCategorySelect(category)}
-            className={`rounded-lg px-4 py-2 text-sm font-medium transition text-left ${
+            className={`rounded-lg px-3 py-2 text-sm font-medium transition text-center lg:text-left ${
               selectedCategory === category
                 ? "bg-primary text-white border-primary"
-                : "bg-white border-gray-300 hover:bg-primary hover:text-white"
+                : "bg-white border-gray-200 hover:bg-primary hover:text-white"
             }`}
           >
             {category}

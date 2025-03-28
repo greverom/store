@@ -11,7 +11,7 @@ type Props = {
 
 export default function PriceSlider({ min, max, value, onChange }: Props) {
   return (
-    <div className="bg-white border border-gray-200 p-4 rounded-md">
+    <div className="bg-white border border-gray-200 p-2 rounded-md">
       <h4 className="text-md font-medium mb-2">Filtrar por precio</h4>
 
       <div className="flex justify-between text-sm text-gray-600 mb-1">

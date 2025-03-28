@@ -16,7 +16,7 @@ export default function BeautyCatalogLayout() {
 
   return (
     <div className="max-w-8xl mx-auto px-5 lg:px-8 min-h-screen">
-      <div className="flex flex-col lg:flex-row gap-5">
+      <div className="flex flex-col lg:flex-row">
         
         {/* Sidebar */}
         <BeautySidebar

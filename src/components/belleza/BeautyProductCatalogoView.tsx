@@ -18,7 +18,7 @@ export default function BeautyProductCatalogoView() {
   } = useFilteredProductsContext()
 
   return (
-    <div className="lg:w-3/3 px-0 md:px-5 lg:px-8">
+    <div className="lg:w-4/5 md:px-5 lg:px-8">
       <h2 className="text-3xl font-bold text-center mb-12">Productos de Belleza</h2>
 
       {isLoading ? (
