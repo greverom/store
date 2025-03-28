@@ -58,3 +58,14 @@ export const getAllBeautyProducts = async (): Promise<BeautyProduct[]> => {
     return []
   }
 }
+
+export async function getBeautyProductById(id: string) {
+  try {
+    const res = await fetch(`https://makeup-api.herokuapp.com/api/v1/products/${id}.json`)
+    if (!res.ok) return null
+    return await res.json()
+  } catch (error) {
+    console.error("Error fetching product by ID", error)
+    return null
+  }
+}

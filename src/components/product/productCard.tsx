@@ -4,16 +4,22 @@ import Image from "next/image"
 import { useState } from "react"
 import AddToCartButton from "@/components/shared/add-to-cart-button"
 import { BeautyProduct } from "@/models/product-belleza"
+import { useRouter } from "next/navigation"
 
 export default function ProductCard({ product }: { product: BeautyProduct }) {
   const [imageValid, setImageValid] = useState(true)
+  const router = useRouter()
 
   if (!imageValid || !product.image_link) return null
 
-  return (
-    <div className="bg-white rounded-lg border border-gray-300 shadow-md overflow-hidden max-w-[240px] scale-[0.90] lg:scale-100">
+  const goToDetail = () => {
+    router.push(`/belleza/${product.id}`)
+  }
 
-      <div className="relative h-43 w-full">
+  return (
+    <div  onClick={goToDetail} className="bg-white rounded-lg border border-gray-300 shadow-md overflow-hidden max-w-[240px] scale-[0.97] lg:scale-100">
+
+      <div className="relative h-55 w-full">
         <Image
           src={product.image_link}
           alt={product.name}
@@ -33,7 +39,7 @@ export default function ProductCard({ product }: { product: BeautyProduct }) {
         </p>
         <div className="flex justify-between items-center">
           <span className="text-sm font-bold">${parseFloat(product.price || "0").toFixed(2)}</span>
-          <div className="scale-[0.8] lg:scale-[0.9]">
+          <div className="scale-[0.8] lg:scale-[0.85]">
             <AddToCartButton
               product={{
                 id: product.id,

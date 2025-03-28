@@ -22,7 +22,7 @@ export default function BeautySidebar({
 }: Props) {
   return (
     <aside className="w-full md:w-1/1 lg:w-1/5 self-start lg:sticky top-35">
-      <div className="flex flex-col gap-4 bg-gray-50 p-4 rounded-md shadow-sm">
+      <div className="flex flex-col gap-3 bg-gray-50 p-1 rounded-md shadow-sm">
         <BeautyCategorySelector
           selectedCategory={selectedCategory}
           onCategorySelect={onCategorySelect}
