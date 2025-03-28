@@ -69,15 +69,14 @@ export default function CosmeticsHero() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          Discover Your Natural Beauty
+         Descubre tu Belleza Natural
         </h1>
         <p
           className={`text-lg md:text-xl text-purple-800/80 max-w-2xl mx-auto mb-8 transition-all duration-1000 delay-300 ease-out ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          At Cindy Store, we believe in enhancing your natural beauty with premium cosmetics that are kind to your skin
-          and the planet.
+          En Cindy Store, creemos en resaltar tu belleza natural con cosméticos de alta calidad que cuidan tu piel y el planeta.
         </p>
         <div
           className={`transition-all duration-1000 delay-500 ease-out ${
@@ -88,7 +87,7 @@ export default function CosmeticsHero() {
             href="/belleza/catalogo"
             className="inline-block bg-gradient-to-r from-pink-400 to-purple-500 text-white font-medium rounded-full px-8 py-3 text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out"
           >
-            Shop Now
+            Comprar ahora
           </Link>
         </div>
       </div>

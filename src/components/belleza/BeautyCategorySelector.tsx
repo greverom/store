@@ -28,8 +28,8 @@ export default function BeautyCategorySelector({
           onClick={() => onCategorySelect(null)}
           className={`border rounded-lg px-3 py-2 text-sm font-medium transition text-center lg:text-left ${
             selectedCategory === null
-              ? "bg-primary text-white border-primary"
-              : "bg-white border-gray-200 hover:bg-primary hover:text-white"
+              ? "bg-pink-500 text-white border-pink-500"
+              : "bg-white border-gray-200 hover:bg-pink-400 hover:text-white"
           }`}
         >
           Ver todos
@@ -41,8 +41,8 @@ export default function BeautyCategorySelector({
             onClick={() => onCategorySelect(category)}
             className={`rounded-lg px-3 py-2 text-sm font-medium transition text-center lg:text-left ${
               selectedCategory === category
-                ? "bg-primary text-white border-primary"
-                : "bg-white border-gray-200 hover:bg-primary hover:text-white"
+                ? "bg-pink-400 text-white border-pink-500"
+                : "bg-white border-gray-200 hover:bg-pink-300 hover:text-white"
             }`}
           >
             {category}
