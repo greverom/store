@@ -2,7 +2,7 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Heart, Star, Clock } from "lucide-react"
+import { Star, Clock } from "lucide-react"
 
 export default function BenefitsSection() {
   const ref = useRef(null)
@@ -10,9 +10,9 @@ export default function BenefitsSection() {
 
   const benefits = [
     {
-      icon: Heart,
-      title: "Productos Naturales",
-      description: "Todos nuestros productos están hechos con ingredientes naturales y orgánicos.",
+      icon: Clock,
+      title: "Entrega Rápida",
+      description: "Recibe tus productos en un plazo de 24 a 48 horas en todo el país.",
     },
     {
       icon: Star,
