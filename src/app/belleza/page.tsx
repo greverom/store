@@ -6,7 +6,7 @@ import Contacto from "@/components/shared/contacto"
 
 export default function BellezaPage() {
   return (
-    <main className="bg-white min-h-screen">
+    <main className="min-h-screen">
       <Hero />
       <Carrousel/>
       {/* <ProductosDestacados /> */}

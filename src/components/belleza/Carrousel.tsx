@@ -34,7 +34,7 @@ export default function Carrousel() {
   return (
     <section
       ref={ref}
-      className={`w-full bg-gradient-to-r from-pink-100 via-purple-100 to-rose-100 py-16 md:py-24 transition-all duration-1000 ease-out ${
+      className={`w-full bg-gradient-to-r from-pink-50 via-rose-100 to-fuchsia-100 py-16 md:py-24 transition-all duration-1000 ease-out ${
         isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
@@ -52,7 +52,7 @@ export default function Carrousel() {
               <h1 className="mb-4 text-4xl md:text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600">
                 {phrase.title}
               </h1>
-              <p className="mx-auto max-w-2xl text-sm md:text-xl text-rose-300 font-light italic">{phrase.subtitle}</p>
+              <p className="mx-auto max-w-2xl text-sm md:text-xl text-rose-400 font-light italic">{phrase.subtitle}</p>
             </div>
           ))}
         </div>
