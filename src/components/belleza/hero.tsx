@@ -66,14 +66,14 @@ export default function CosmeticsHero() {
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1
           className={`text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-500 to-pink-500 mb-6 transition-all duration-1000 ease-out ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
           }`}
         >
          Descubre tu Belleza Natural
         </h1>
         <p
-          className={`text-lg md:text-xl text-purple-800/80 max-w-2xl mx-auto mb-8 transition-all duration-1000 delay-300 ease-out ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          className={`text-lg md:text-md text-purple-800/50 max-w-2xl mx-auto mb-8 transition-all duration-1000 delay-300 ease-out ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
           }`}
         >
           En Cindy Store, creemos en resaltar tu belleza natural con cosméticos de alta calidad que cuidan tu piel y el planeta.

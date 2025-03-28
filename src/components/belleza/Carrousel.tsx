@@ -26,7 +26,7 @@ export default function Carrousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % phrases.length)
-    }, 5000)
+    }, 7000)
 
     return () => clearInterval(interval)
   }, [phrases.length])

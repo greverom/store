@@ -21,7 +21,7 @@ export default function AddToCartButton({ product, onClick }: Props) {
   return (
     <button
       onClick={handleAddToCart}
-     className="px-5 py-2.5 rounded-full bg-rose-500 text-white hover:bg-rose-600 transition-colors duration-300 shadow-md flex items-center gap-2"
+     className="px-5 py-2.5 rounded-full bg-white text-rose-400 border-transparent hover:border-current hover:bg-rose-400 hover:text-white transition-colors duration-300 shadow-md flex items-center gap-2"
     >
       <ShoppingCart className="w-4 h-4" />
       <span>Comprar</span>

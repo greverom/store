@@ -1,9 +1,8 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-
-import CartButton from "@/components/cart/cart-button"
 import { CartProvider } from "@/context/cart.context"
+import { Inter } from "next/font/google"
+import MainHeader from "@/components/header/layout/headerMain"
+import "./globals.css"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,18 +21,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={inter.variable}>
-      <body className="antialiased">
-        <CartProvider>
-          <div className="relative min-h-screen">
-            <header className="sticky top-0 z-50 bg-white shadow-sm">
-              <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-                <div className="text-2xl font-bold">Cindy Store</div>
-                <CartButton />
-              </div>
-            </header>
-            <main>{children}</main>
-          </div>
-        </CartProvider>
+      <body className="antialiased bg-white">
+      <CartProvider>
+        <div className="relative min-h-screen">
+          <MainHeader />
+          <main>{children}</main>
+        </div>
+      </CartProvider>
       </body>
     </html>
   )
