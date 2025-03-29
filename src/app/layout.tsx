@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 import { CartProvider } from "@/context/cart.context"
 import { Inter } from "next/font/google"
-import MainHeader from "@/components/header/layout/headerMain"
 import "./globals.css"
+import HeaderWrapper from "@/components/header/headerWrapper"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className="antialiased bg-white">
       <CartProvider>
         <div className="relative min-h-screen">
-          <MainHeader />
+        <HeaderWrapper />
           <main>{children}</main>
         </div>
       </CartProvider>

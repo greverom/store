@@ -56,7 +56,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section className="py-16 bg-gray-50" ref={ref}>
+    <section className="bg-gray-50 pt-10 -mt-[75px]" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-12"
@@ -142,8 +142,8 @@ export default function ContactSection() {
               <div className="flex items-start">
                 <MapPin className="text-pink-500 mr-4 flex-shrink-0 mt-1" size={20} />
                 <div>
-                  <h4 className="font-medium text-gray-800 mb-1">Dirección</h4>
-                  <p className="text-gray-600">
+                  <h4 className="font-medium  text-gray-800 mb-1">Dirección</h4>
+                  <p className="text-gray-500">
                     Av. Cosmética 123
                     <br />
                     Colonia Belleza, CP 12345
@@ -157,7 +157,7 @@ export default function ContactSection() {
                 <Phone className="text-pink-500 mr-4 flex-shrink-0 mt-1" size={20} />
                 <div>
                   <h4 className="font-medium text-gray-800 mb-1">Teléfono</h4>
-                  <p className="text-gray-600">+52 (55) 1234 5678</p>
+                  <p className="text-gray-500">+52 (55) 1234 5678</p>
                 </div>
               </div>
 
@@ -165,7 +165,7 @@ export default function ContactSection() {
                 <Mail className="text-pink-500 mr-4 flex-shrink-0 mt-1" size={20} />
                 <div>
                   <h4 className="font-medium text-gray-800 mb-1">Email</h4>
-                  <p className="text-gray-600">contacto@cosmeticastore.com</p>
+                  <p className="text-gray-500">contacto@cosmeticastore.com</p>
                 </div>
               </div>
 
@@ -173,7 +173,7 @@ export default function ContactSection() {
                 <Clock className="text-pink-500 mr-4 flex-shrink-0 mt-1" size={20} />
                 <div>
                   <h4 className="font-medium text-gray-800 mb-1">Horarios de atención</h4>
-                  <p className="text-gray-600">
+                  <p className="text-gray-500">
                     Lunes - Viernes: 10:00 AM - 8:00 PM
                     <br />
                     Sábado: 10:00 AM - 6:00 PM
@@ -184,9 +184,11 @@ export default function ContactSection() {
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-gray-200">
+          </motion.div>
+        </motion.div>
+            <div className="mt-12 text-center">
               <h4 className="font-medium text-gray-800 mb-3">Síguenos</h4>
-              <div className="flex space-x-4">
+              <div className="flex justify-center space-x-4">
                 <a href="#" className="text-pink-500 hover:text-pink-600 transition">
                   <span className="sr-only">Instagram</span>
                   <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -215,8 +217,6 @@ export default function ContactSection() {
                 </a>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   )

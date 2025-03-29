@@ -22,7 +22,6 @@ export default function BeautyCategorySelector({
         Filtrar por Categoría
       </h2>
 
-      {/* Grid en móviles, columna en escritorio */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 lg:flex lg:flex-col">
         <button
           onClick={() => onCategorySelect(null)}
