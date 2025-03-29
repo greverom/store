@@ -29,7 +29,9 @@ export default function BeautyCatalogLayout() {
         />
 
         {/* Catálogo */}
-        <BeautyProductView />
+        <div className="mt-7 lg:mt-0">
+          <BeautyProductView />
+        </div>
       </div>
     </div>
   )

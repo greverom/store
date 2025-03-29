@@ -34,8 +34,8 @@ export default function BenefitsSection() {
         duration: Math.random() * 15 + 20,
         delay: Math.random() * 5,
         colorClass: isPink
-          ? "bg-pink-100/30"
-          : "bg-purple-300/30",
+          ? "bg-pink-100/10"
+          : "bg-purple-200/20",
       })
     }
 
@@ -103,7 +103,7 @@ export default function BenefitsSection() {
           variants={itemVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-5xl font-bold mb-20 bg-gradient-to-r from-pink-400 via-purple-500 to-pink-400 text-transparent bg-clip-text"
+          className="text-2xl md:text-5xl font-bold mb-20 bg-gradient-to-r from-pink-400 via-purple-500 to-pink-400 text-transparent bg-clip-text"
         >
           Disfruta de Nuestros Beneficios
         </motion.h2>
@@ -125,8 +125,8 @@ export default function BenefitsSection() {
                 <div className="p-3 mb-4">
                   <benefit.icon className="w-8 h-8 text-pink-300" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-600">{benefit.title}</h3>
-                <p className=" text-gray-500 text-md">{benefit.description}</p>
+                <h3 className="text-lg md:text-xl font-semibold mb-3 text-gray-600">{benefit.title}</h3>
+                <p className="max-w-xs md:max-w-2xl text-gray-500 text-sm md:text-md">{benefit.description}</p>
               </div>
             </motion.div>
           ))}

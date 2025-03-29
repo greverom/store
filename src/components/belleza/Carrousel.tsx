@@ -52,7 +52,7 @@ export default function Carrousel() {
               <h1 className="mb-4 text-4xl md:text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600">
                 {phrase.title}
               </h1>
-              <p className="mx-auto max-w-2xl text-sm md:text-xl text-rose-400 font-light italic">{phrase.subtitle}</p>
+              <p className="mx-auto max-w-xs md:max-w-2xl text-sm md:text-xl text-rose-400 font-light italic">{phrase.subtitle}</p>
             </div>
           ))}
         </div>

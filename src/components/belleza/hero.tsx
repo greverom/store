@@ -34,8 +34,8 @@ export default function CosmeticsHero() {
         duration: Math.random() * 15 + 20,
         delay: Math.random() * 5,
         colorClass: isPink
-          ? "bg-pink-100/20"
-          : "bg-purple-300/30",
+          ? "bg-pink-100/10"
+          : "bg-purple-200/20",
       })
     }
 
@@ -43,7 +43,7 @@ export default function CosmeticsHero() {
   }, [])
 
   return (
-    <div className="relative min-h-[90vh] overflow-hidden bg-gradient-to-b from-pink-50 to-purple-50 flex items-center justify-center">
+    <div className="relative min-h-[75vh] md:min-h-[90vh] overflow-hidden bg-gradient-to-b from-pink-50 to-purple-50 flex items-center justify-center">
       {/* Animated bubbles background */}
       <div className="absolute inset-0 overflow-hidden">
         {bubbles.map((bubble) => (
@@ -63,16 +63,17 @@ export default function CosmeticsHero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 md:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1
-          className={`text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-500 to-pink-500 mb-6 transition-all duration-1000 ease-out ${
+          className={`text-5xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-500 to-pink-500 mb-6 transition-all duration-1000 ease-out ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
           }`}
         >
-         Descubre tu Belleza Natural
+         Descubre tu <br className="block md:hidden" />
+         Belleza Natural
         </h1>
         <p
-          className={`text-lg md:text-md text-purple-800/50 max-w-2xl mx-auto mb-8 transition-all duration-1000 delay-300 ease-out ${
+          className={`text-sm md:text-xl text-purple-800/50 max-w-xs md:max-w-2xl mx-auto mb-8 transition-all duration-1000 delay-300 ease-out ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
           }`}
         >
