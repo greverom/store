@@ -56,7 +56,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section className="bg-gray-50 pt-10 -mt-[75px]" ref={ref}>
+    <section className="bg-gray-50 pt-10 -mt-[78px]" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-12"

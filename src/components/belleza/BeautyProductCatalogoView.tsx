@@ -19,10 +19,14 @@ export default function BeautyProductCatalogoView() {
 
   return (
     <div className="lg:w-4/5 md:px-5 lg:px-8">
-      <h2 className="text-3xl font-bold text-center mb-12">Productos de Belleza</h2>
+      <h2 className="text-3xl font-bold text-center mb-12">Productos</h2>
 
       {isLoading ? (
         <p className="text-center py-10">Cargando productos...</p>
+      ) : productsToRender.length === 0 ? (
+        <p className="text-center py-10 text-gray-500 italic">
+          No se encontraron productos con los filtros seleccionados.
+        </p>
       ) : (
         <>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">

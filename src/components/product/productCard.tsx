@@ -17,9 +17,9 @@ export default function ProductCard({ product }: { product: BeautyProduct }) {
   }
 
   return (
-    <div className="bg-white rounded-lg border border-gray-300 shadow-md overflow-hidden max-w-[240px] scale-[0.97] lg:scale-100">
+    <div className="bg-white rounded-lg border border-gray-300 overflow-hidden max-w-[250px] scale-[0.95] lg:scale-100">
 
-      <div onClick={goToDetail} className="relative h-55 w-full">
+      <div onClick={goToDetail} className="relative h-32 md:h-40 w-full">
         <Image
           src={product.image_link}
           alt={product.name}

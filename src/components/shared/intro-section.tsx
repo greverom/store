@@ -30,7 +30,7 @@ export default function IntroSection() {
   }
 
   return (
-    <section className="py-16 bg-white" ref={ref}>
+    <section className="-mt-[78px] pt-10 bg-white" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.div
           className="max-w-3xl mx-auto text-center"
