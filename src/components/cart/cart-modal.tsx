@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useCart } from "@/context/cart.context"
 import { X } from "lucide-react"
 import CartSummary from "./cart-summary"
@@ -19,6 +19,18 @@ export default function CartModal({
 }) {
   const [step, setStep] = useState<Step>("summary")
   const { items, subtotal, clearCart } = useCart()
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [isOpen])
 
   if (!isOpen) return null
 
@@ -41,8 +53,20 @@ export default function CartModal({
   }
 
   return (
-    <div className="fixed inset-0 z-51 flex items-center justify-center  backdrop-blur-sm bg-black/30">
-      <div className="relative bg-white rounded-lg shadow-xl w-full max-w-3xl max-h-[90vh] overflow-hidden flex flex-col">
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/30 backdrop-blur-sm"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        height: "100dvh", 
+      }}
+    >
+      <div
+        className="relative bg-white rounded-lg shadow-xl w-full max-w-3xl max-h-[90vh] overflow-hidden flex flex-col animate-fade-in-up"
+      >
         <div className="flex justify-between items-center p-4 border-b">
           <h2 className="text-xl font-semibold">
             {step === "summary" && "Tu Carrito"}
@@ -124,4 +148,3 @@ export default function CartModal({
     </div>
   )
 }
-

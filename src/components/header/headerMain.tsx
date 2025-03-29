@@ -11,48 +11,50 @@ export default function MainHeader() {
   const [scrollY, setScrollY] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
 
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
   const isHome = pathname === '/'
+  const isAnimatedRoute = (pathname === '/belleza' || pathname === '/dulces') && isMobile
+
+  useEffect(() => {
+    if (!isAnimatedRoute) return
+    const handleScroll = () => setScrollY(window.scrollY)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [isAnimatedRoute])
+
+  const maxScroll = typeof window !== "undefined" ? window.innerHeight * 4 : 200
+  const scrollProgress = isAnimatedRoute ? Math.min(scrollY / maxScroll, 1) : 0
+  const backgroundOpacity = Math.min(scrollProgress * 10, .9)
+  const blurLevel = scrollProgress > 0.05 ? scrollProgress * 10 : 0
+
   const getTitle = () => {
     if (pathname.startsWith('/belleza')) return 'Cindy Glow'
-    if (pathname.startsWith('/dulce')) return 'Bakery'
+    if (pathname.startsWith('/dulces')) return 'Bakery'
     return null
   }
 
-  useEffect(() => {
-    const checkIsMobile = () => setIsMobile(window.innerWidth < 768)
-    checkIsMobile()
-
-    const handleScroll = () => setScrollY(window.scrollY)
-
-    if (isMobile) {
-      window.addEventListener('scroll', handleScroll)
-    }
-
-    window.addEventListener('resize', checkIsMobile)
-
-    return () => {
-      window.removeEventListener('resize', checkIsMobile)
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [isMobile])
-
-  const maxScroll = typeof window !== "undefined" ? window.innerHeight * 5.25 : 200
-  const scrollProgress = Math.min(scrollY / maxScroll, 1)
-  const backgroundOpacity = isMobile ? Math.min(scrollProgress * 10, 1) : 1
-  const blurLevel = isMobile ? scrollProgress * 10 : 0
+  const dynamicBackground = isAnimatedRoute
+  ? scrollProgress < 0.01
+    ? "linear-gradient(to right, rgba(252, 231, 243, 0.4), rgba(253, 242, 248, 0.4), rgba(237, 233, 254, 0.4))"
+    : `rgba(31, 41, 55, ${backgroundOpacity})`
+  : "rgba(255, 255, 255, 0.95)"
 
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full left-0 right-0 transition-all duration-300 ease-in-out",
+        "sticky top-0 z-50 transition-all duration-300 ease-in-out",
         isHome ? "opacity-0 pointer-events-none" : "opacity-100"
       )}
       style={{
-        backgroundColor: isMobile
-          ? `rgba(31, 41, 55, ${backgroundOpacity})`
-          : `rgba(255, 255, 255, 0.95)`,
-        backdropFilter: isMobile && scrollProgress > 0.05 ? `blur(${blurLevel}px)` : "none",
-        WebkitBackdropFilter: isMobile && scrollProgress > 0.05 ? `blur(${blurLevel}px)` : "none",
+        background: dynamicBackground,
+        backdropFilter: isAnimatedRoute && scrollProgress > 0.05 ? `blur(${blurLevel}px)` : "none",
+        WebkitBackdropFilter: isAnimatedRoute && scrollProgress > 0.05 ? `blur(${blurLevel}px)` : "none",
       }}
     >
       <div className="container mx-auto px-4 py-6 flex justify-between items-center">
@@ -64,8 +66,9 @@ export default function MainHeader() {
             {getTitle()}
           </Link>
         ) : (
-          <span className="text-xl font-bold text-white">Cindy</span>
+          <span className="text-xl font-bold text-gray-900">Cindy</span>
         )}
+
         <CartButton scrollProgress={scrollProgress} />
       </div>
     </header>
