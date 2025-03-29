@@ -5,8 +5,8 @@ import Beneficios from "@/components/belleza/beneficios"
 export default function BellezaPage() {
   return (
     <main className="min-h-screen">
-      <Hero />
       <Carrousel/>
+      <Hero />
       <Beneficios />
     </main>
   )

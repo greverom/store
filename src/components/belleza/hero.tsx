@@ -1,7 +1,8 @@
-'use client'
+"use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import Link from "next/link"
+import { useInView } from "framer-motion"
 
 type Bubble = {
   id: number
@@ -15,14 +16,12 @@ type Bubble = {
 }
 
 export default function CosmeticsHero() {
-  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
   const [bubbles, setBubbles] = useState<Bubble[]>([])
 
   useEffect(() => {
-    setIsVisible(true)
-
     const generatedBubbles: Bubble[] = []
-
     for (let i = 0; i < 25; i++) {
       const isPink = i < 15
       generatedBubbles.push({
@@ -38,13 +37,15 @@ export default function CosmeticsHero() {
           : "bg-purple-200/20",
       })
     }
-
     setBubbles(generatedBubbles)
   }, [])
 
   return (
-    <div className="relative min-h-[75vh] md:min-h-[90vh] overflow-hidden bg-gradient-to-b from-pink-50 to-purple-50 flex items-center justify-center">
-      {/* Animated bubbles background */}
+    <div
+      ref={ref}
+      className="relative min-h-[75vh] md:min-h-[90vh] overflow-hidden bg-gradient-to-r from-pink-50/50 via-rose-50/40 to-fuchsia-50/30 flex items-center justify-center"
+    >
+      {/* Fondo animado */}
       <div className="absolute inset-0 overflow-hidden">
         {bubbles.map((bubble) => (
           <div
@@ -62,31 +63,31 @@ export default function CosmeticsHero() {
         ))}
       </div>
 
-      {/* Content */}
+      {/* Contenido */}
       <div className="relative z-10 md:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1
           className={`text-5xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-500 to-pink-500 mb-6 transition-all duration-1000 ease-out ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
+            isInView ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
           }`}
         >
-         Descubre tu <br className="block md:hidden" />
-         Belleza Natural
+          Descubre tu <br className="block md:hidden" />
+          Belleza Natural
         </h1>
         <p
-          className={`text-sm md:text-xl text-purple-800/50 max-w-xs md:max-w-2xl mx-auto mb-8 transition-all duration-1000 delay-300 ease-out ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
+          className={`text-sm md:text-xl text-gray-600 max-w-xs md:max-w-2xl mx-auto mb-20 transition-all duration-1000 delay-300 ease-out ${
+            isInView ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
           }`}
         >
           En Cindy Store, creemos en resaltar tu belleza natural con cosméticos de alta calidad que cuidan tu piel y el planeta.
         </p>
         <div
           className={`transition-all duration-1000 delay-500 ease-out ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            isInView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
           <Link
             href="/belleza/catalogo"
-            className="inline-block bg-gradient-to-r from-pink-400 to-purple-500 text-white font-medium rounded-full px-8 py-3 text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out"
+            className="inline-block bg-gray-800 text-white font-medium rounded-full px-8 py-3 text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out"
           >
             Comprar ahora
           </Link>

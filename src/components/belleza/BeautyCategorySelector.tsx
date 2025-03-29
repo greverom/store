@@ -1,6 +1,8 @@
 "use client"
 
 import { useBeautyCategories } from "@/hooks/useBeautyCategories"
+import { beautyCategoryLabels } from "@/models/dataBeautyCategory"
+
 
 type Props = {
   selectedCategory: string | null
@@ -44,7 +46,7 @@ export default function BeautyCategorySelector({
                 : "bg-white border-gray-200 hover:bg-pink-300 hover:text-white"
             }`}
           >
-            {category}
+            {beautyCategoryLabels[category] || category}
           </button>
         ))}
       </div>

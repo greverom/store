@@ -8,3 +8,14 @@ export const staticBeautyCategories: string[] = [
   "cream",
   "concealer",
   ]
+
+  export const beautyCategoryLabels: Record<string, string> = {
+    pencil: "Lápiz",
+    lipstick: "Labial",
+    liquid: "Líquido",
+    powder: "Polvo",
+    lip_gloss: "Brillo Labial",
+    gel: "Gel",
+    cream: "Crema",
+    concealer: "Corrector",
+  }

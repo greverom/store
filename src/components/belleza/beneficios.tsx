@@ -78,8 +78,8 @@ export default function BenefitsSection() {
   }
 
   return (
-    <section className="relative min-h-[600px] py-6 flex items-center justify-center px-4 overflow-hidden">
-      {/* Fondo de burbujas */}
+    <section className="relative min-h-[60vh] py-6 flex justify-center px-4 overflow-hidden">
+
       <div className="absolute inset-0 -z-10 overflow-hidden">
         {bubbles.map((bubble) => (
           <div
@@ -103,9 +103,11 @@ export default function BenefitsSection() {
           variants={itemVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-2xl md:text-5xl font-bold mb-20 bg-gradient-to-r from-pink-400 via-purple-500 to-pink-400 text-transparent bg-clip-text"
+          className="text-4xl md:text-5xl font-bold mb-20 mt-12 md:mt-0 bg-gradient-to-r from-pink-400 via-purple-500 to-pink-400 text-transparent bg-clip-text"
         >
-          Disfruta de Nuestros Beneficios
+          Disfruta de
+          <br className="block md:hidden" />
+          Nuestros Beneficios
         </motion.h2>
 
         <motion.div

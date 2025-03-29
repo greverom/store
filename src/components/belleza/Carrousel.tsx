@@ -14,11 +14,21 @@ export default function Carrousel() {
       subtitle: "Potencia tu resplandor único con nuestros productos premium",
     },
     {
-      title: "Elegancia en Cada Detalle",
+      title: (
+        <>
+          Elegancia en <br className="md:hidden" />
+          Cada Detalle
+        </>
+      ),
       subtitle: "Realza tu belleza con fórmulas exclusivas y delicadas",
     },
     {
-      title: "Transforma Tu Rutina",
+      title: (
+        <>
+          Transforma <br className="md:hidden" />
+          Tu Rutina
+        </>
+      ),
       subtitle: "Lujo y cuidado en cada aplicación, resultados extraordinarios",
     },
   ]
@@ -34,12 +44,12 @@ export default function Carrousel() {
   return (
     <section
       ref={ref}
-      className={`w-full bg-gradient-to-r from-pink-50 via-rose-100 to-fuchsia-100 py-16 md:py-24 transition-all duration-1000 ease-out ${
+      className={`w-full bg-gradient-to-r from-pink-50/50 via-rose-50/40 to-fuchsia-50/30  md:py-24 transition-all duration-1000 ease-out ${
         isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden">
+        <div className="relative h-[65vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
           {phrases.map((phrase, index) => (
             <div
               key={index}
@@ -49,10 +59,10 @@ export default function Carrousel() {
                   : "opacity-0 translate-x-10"
               }`}
             >
-              <h1 className="mb-4 text-4xl md:text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600">
+              <h1 className="mb-7 text-6xl md:text-7xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600">
                 {phrase.title}
               </h1>
-              <p className="mx-auto max-w-xs md:max-w-2xl text-sm md:text-xl text-rose-400 font-light italic">{phrase.subtitle}</p>
+              <p className="mx-auto max-w-xs md:max-w-2xl text-lg md:text-xl text-rose-400 font-light italic">{phrase.subtitle}</p>
             </div>
           ))}
         </div>
