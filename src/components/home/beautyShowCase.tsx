@@ -70,7 +70,7 @@ export default function CindyBeautyShowcase() {
   ]
 
   return (
-    <section className="relative overflow-hidden py-20 px-4 min-h-[90vh] flex flex-col justify-center items-center">
+    <section className="relative overflow-hidden py-18 px-4 min-h-[90vh] flex flex-col justify-center items-center">
       {/* Animated background bubbles */}
       <div className="absolute inset-0 bg-gradient-to-br from-pink-50/30 via-rose-50/30 to-fuchsia-50/20">
         {bubbles.map((bubble) => (
