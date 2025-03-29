@@ -38,8 +38,8 @@ export default function ProductCard({ product }: { product: BeautyProduct }) {
           {product.description || "Sin descripción"}
         </p>
         <div className="flex justify-between items-center">
-          <span className="text-sm font-bold">${parseFloat(product.price || "0").toFixed(2)}</span>
-          <div className="scale-[0.8] lg:scale-[0.85]">
+          <span className="text-md md:text-sm font-bold">${parseFloat(product.price || "0").toFixed(2)}</span>
+          <div className="ml-auto">
             <AddToCartButton
               product={{
                 id: product.id,
