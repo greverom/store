@@ -2,6 +2,7 @@ import Hero from "@/components/home/hero"
 import CindyBeautyShowcase from "@/components/home/beautyShowCase"
 import CindyBakeryShowcase from "@/components/home/bakeryShowCase"
 import IntroSection from "@/components/shared/intro-section"
+import ContactSection from "@/components/shared/contacto"
 
 export default function HomePage() {
   return (
@@ -11,6 +12,7 @@ export default function HomePage() {
         <CindyBeautyShowcase/>
         <CindyBakeryShowcase/>
         <IntroSection/>
+        <ContactSection/>
       </main>
     </>
   )

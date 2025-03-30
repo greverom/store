@@ -68,7 +68,7 @@ export default function CindyBakeryShowcase() {
 
         <motion.p
           variants={itemVariants}
-          className="text-lg md:text-xl text-gray-700 mb-20 font-light"
+          className="text-md md:text-xl text-gray-700 mb-20 font-light"
         >
           Endulzamos tus días con postres artesanales elaborados con amor y los mejores ingredientes.
         </motion.p>
