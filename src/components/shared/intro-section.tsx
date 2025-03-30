@@ -11,7 +11,7 @@ export default function IntroSection() {
   const areImagesInView = useInView(imagesRef, { amount: 0.3 })
 
   return (
-    <section id="nosotros" className="w-full md:py-25 min-h-[90vh] bg-gray-700 text-white overflow-hidden">
+    <section id="nosotros" className="w-full md:py-25 min-h-[90vh] bg-gray-100 overflow-hidden">
       <div className="mx-auto py-12 px-2 pb-10 w-full max-w-[90%] sm:max-w-[80%]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-15 md:gap-12 items-center">
           {/* Texto */}
@@ -23,7 +23,7 @@ export default function IntroSection() {
             className="text-center md:text-left self-start pt-12"
           >
             <h2 className="text-4xl lg:text-5xl font-serif font-light mb-6 bg-gradient-to-r from-pink-400 via-rose-400 to-fuchsia-500 text-transparent bg-clip-text">Sobre mí</h2>
-            <p className="text-base md:text-lg text-gray-50 leading-relaxed">
+            <p className="text-base md:text-lg text-gray-600 leading-relaxed">
               A través de mis creaciones, busco transmitir la importancia del auto cuidado y los pequeños placeres que
               hacen especial cada día, ya sea a través de un tratamiento de belleza o un delicioso postre artesanal.
             </p>

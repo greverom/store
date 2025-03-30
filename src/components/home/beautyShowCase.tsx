@@ -71,7 +71,7 @@ export default function CindyBeautyShowcase() {
           </motion.h2>
 
           <motion.p
-            className="text-lg md:text-xl lg:text-2xl max-w-6xl mx-auto mb-8 text-gray-700"
+            className="text-lg md:text-xl lg:text-2xl max-w-6xl mx-auto mb-20 text-gray-700 font-light"
             variants={itemVariants}
           >
             Cosméticos creados para potenciar tu brillo natural. Siente la elegancia en cada detalle.
@@ -96,7 +96,7 @@ export default function CindyBeautyShowcase() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="backdrop-blur-sm p-2"
+              className="p-2"
             >
               <div className="w-14 h-14 flex items-center justify-center mb-4 mx-auto">
                 {benefit.icon}
