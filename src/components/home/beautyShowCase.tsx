@@ -7,16 +7,17 @@ import { Sparkles, Smile, Droplet } from "lucide-react"
 
 export default function CindyBeautyShowcase() {
   const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { amount: 0.3, once: false })
+  const isInView = useInView(sectionRef, { amount: 0.05, once: false })
 
   // Animation variants
   const containerVariants: Variants = {
-    hidden: { opacity: 0, y: 10 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: { staggerChildren: 0.2, delayChildren: 0.3 },
     },
+    exit: { opacity: 0, y: 30, transition: { duration: 1 } }, 
   }
 
   const itemVariants: Variants = {
@@ -26,6 +27,7 @@ export default function CindyBeautyShowcase() {
       y: 0,
       transition: { duration: 0.8, ease: [.22, 1, 0.36, 1] },
     },
+    exit: { opacity: 0, y: 30, transition: { duration: 1 } },
   }
 
   const benefitItems = [
