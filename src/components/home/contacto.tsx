@@ -13,7 +13,7 @@ export default function ContactSection() {
   })
 
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: false, amount: 0.2 })
+  const isInView = useInView(ref, { once: false, amount: 0.3 })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -28,7 +28,7 @@ export default function ContactSection() {
   }
 
   const containerVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
@@ -41,7 +41,7 @@ export default function ContactSection() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 1, ease: [0.22, 1, 0.36, 1] },
     },
   }
 
@@ -65,9 +65,9 @@ export default function ContactSection() {
 
         {/* Formulario + Info */}
         <motion.div
-          variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
+          variants={containerVariants}
           className="grid md:grid-cols-1 lg:grid-cols-2 gap-10 w-[100%] md:w-[80%] lg:w-[90%] mx-auto"
         >
           {/* Formulario */}
