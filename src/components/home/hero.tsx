@@ -43,7 +43,7 @@ export default function Hero() {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-      className="relative min-h-[100vh] w-full overflow-hidden"
+      className="relative h-[100vh] w-full overflow-hidden"
     >
       {slides.map((slide, index) => (
         <div
