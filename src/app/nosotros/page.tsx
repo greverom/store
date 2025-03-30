@@ -1,4 +1,4 @@
-import IntroSection from "@/components/home/intro-section";
+import IntroSection from "@/components/shared/intro-section";
 
 export default function NosotrosPage() {
   return (
