@@ -11,7 +11,7 @@ export default function IntroSection() {
   const areImagesInView = useInView(imagesRef, { amount: 0.3 })
 
   return (
-    <section id="nosotros" className="w-full md:py-25 min-h-[90vh] bg-gray-100 overflow-hidden">
+    <section id="nosotros" className="w-full md:py-25 min-h-[100vh] bg-gray-100 overflow-hidden">
       <div className="mx-auto py-12 px-2 pb-10 w-full max-w-[90%] sm:max-w-[80%]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-15 md:gap-12 items-center">
           {/* Texto */}

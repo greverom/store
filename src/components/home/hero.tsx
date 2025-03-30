@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
+import { motion, useInView } from "framer-motion"
 
 const slides = [
   {
@@ -25,6 +26,8 @@ const slides = [
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const ref = useRef(null)
+  const isInView = useInView(ref, { amount: 0.3, once: true })
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -35,7 +38,13 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative h-[70vh] w-full overflow-hidden">
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+      transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+      className="relative min-h-[100vh] w-full overflow-hidden"
+    >
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -68,7 +77,6 @@ export default function Hero() {
           />
         ))}
       </div>
-    </section>
+    </motion.section>
   )
 }
-
