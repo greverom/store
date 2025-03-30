@@ -53,8 +53,8 @@ export default function CindyBakeryShowcase() {
   ]
 
   return (
-    <div className="container mx-auto min-h-[90vh] max-w-xs sm:max-w-md md:max-w-3xl lg:max-w-6xl relative z-10" ref={ref}>
-      <div className="container mx-auto py-18 px-4 md:px-6">
+    <div id="dulces" className="container mx-auto min-h-[100vh] max-w-xs sm:max-w-md md:max-w-3xl lg:max-w-6xl relative z-10" ref={ref}>
+      <div className="container mx-auto py-25 px-4 md:px-6">
         {/* Hero Section */}
         <motion.div
           ref={ref}

@@ -26,6 +26,14 @@ export default function GeneralHeader() {
       document.removeEventListener("mousedown", handleClickOutside)
     }
   }, [mobileMenuOpen])
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId)
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" })
+      setMobileMenuOpen(false)
+    }
+  }
   
   return (
     <header className="sticky top-0 z-50 border-b border-gray-100 py-6 bg-white">
@@ -42,10 +50,21 @@ export default function GeneralHeader() {
 
         <nav className="hidden md:flex space-x-8">
           <Link href="/" className="text-sm text-gray-600 hover:text-gray-900">Inicio</Link>
-          <Link href="/belleza" className="text-sm text-gray-600 hover:text-gray-900">Belleza</Link>
-          <Link href="/dulces" className="text-sm text-gray-600 hover:text-gray-900">Bakery</Link>
-          <Link href="/nosotros" className="text-sm text-gray-600 hover:text-gray-900">Nosotros</Link>
-          <Link href="/contacto" className="text-sm text-gray-600 hover:text-gray-900">Contacto</Link>
+          <button onClick={() => scrollToSection("belleza")} className="text-sm text-gray-600 hover:text-gray-900">
+            Belleza
+          </button>
+
+          <button onClick={() => scrollToSection("dulces")} className="text-sm text-gray-600 hover:text-gray-900">
+            Bakery
+          </button>
+
+          <button onClick={() => scrollToSection("nosotros")} className="text-sm text-gray-600 hover:text-gray-900">
+            Nosotros
+          </button>
+
+          <button onClick={() => scrollToSection("contacto")} className="text-sm text-gray-600 hover:text-gray-900">
+            Contacto
+          </button>
         </nav>
 
         <div className="flex space-x-4">
@@ -85,27 +104,57 @@ export default function GeneralHeader() {
       </div>
 
        {/* Menú móvil desplegable */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            key="mobile-menu"
-            ref={menuRef}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="absolute left-0 top-full w-full bg-white shadow-md px-4 pt-4 pb-6 z-40"
-          >
-            <div className="space-y-2">
-              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="block text-sm text-gray-700 hover:text-gray-900">Inicio</Link>
-              <Link href="/belleza" onClick={() => setMobileMenuOpen(false)} className="block text-sm text-gray-700 hover:text-gray-900">Belleza</Link>
-              <Link href="/dulces" onClick={() => setMobileMenuOpen(false)} className="block text-sm text-gray-700 hover:text-gray-900">Bakery</Link>
-              <Link href="/nosotros" onClick={() => setMobileMenuOpen(false)} className="block text-sm text-gray-700 hover:text-gray-900">Nosotros</Link>
-              <Link href="/contacto" onClick={() => setMobileMenuOpen(false)} className="block text-sm text-gray-700 hover:text-gray-900">Contacto</Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+       <AnimatePresence>
+  {mobileMenuOpen && (
+    <motion.div
+      key="mobile-menu"
+      ref={menuRef}
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="absolute left-0 top-full w-full bg-white shadow-md px-4 pt-4 pb-6 z-40"
+    >
+      <div className="flex flex-col space-y-4">
+        <Link
+          href="/"
+          onClick={() => setMobileMenuOpen(false)}
+          className="text-sm text-gray-700 hover:text-gray-900 text-left"
+        >
+          Inicio
+        </Link>
+
+        <button
+          onClick={() => scrollToSection("belleza")}
+          className="text-sm text-gray-600 hover:text-gray-900 text-left"
+        >
+          Belleza
+        </button>
+
+        <button
+          onClick={() => scrollToSection("dulces")}
+          className="text-sm text-gray-600 hover:text-gray-900 text-left"
+        >
+          Bakery
+        </button>
+
+        <button
+          onClick={() => scrollToSection("nosotros")}
+          className="text-sm text-gray-600 hover:text-gray-900 text-left"
+        >
+          Nosotros
+        </button>
+
+        <button
+          onClick={() => scrollToSection("contacto")}
+          className="text-sm text-gray-600 hover:text-gray-900 text-left"
+        >
+          Contacto
+        </button>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
     </header>
   )
 }
