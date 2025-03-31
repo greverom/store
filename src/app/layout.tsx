@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { CartProvider } from "@/context/cart.context"
-import { Inter, Pacifico } from "next/font/google"
+import { Dancing_Script, Inter, Pacifico, Poppins } from "next/font/google"
 import "./globals.css"
 import HeaderWrapper from "@/components/header/headerWrapper"
 
@@ -15,6 +15,18 @@ const pacifico = Pacifico({
   variable: "--font-pacifico",
 })
 
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["800"],
+  variable: "--font-poppins",
+})
+
+const dancing = Dancing_Script({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-dancing",
+})
+
 export const metadata: Metadata = {
   title: "Mi Tienda",
   description: "Productos de belleza y dulces artesanales",
@@ -26,7 +38,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${inter.variable} ${pacifico.variable}`}>
+    <html lang="es" className=
+                  {`${inter.variable} 
+                    ${pacifico.variable} 
+                    ${dancing.variable}
+                    ${poppins.variable}`}>
       <body className="antialiased bg-white">
       <CartProvider>
         <div className="relative min-h-screen">

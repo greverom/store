@@ -49,39 +49,39 @@ export default function Hero() {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-      className="relative h-[100vh] w-full overflow-y-hidden bg-gradient-to-br from-gray-950 to-gray-900"
+      className="relative h-[85vh] w-full bg-gradient-to-br from-gray-950 to-gray-900"
     >
       {slides.map((slide, index) => (
         <div
-          key={slide.id}
-          className={`absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 transition-opacity duration-1000 ${
-            index === currentSlide ? "opacity-100" : "opacity-0"
-          } max-w-full`}
-        >
-          {/* Círculos decorativos */}
-          {slide.circles.map((circle, i) => (
-            <div
-              key={i}
-              className={`absolute ${circle.position} w-40 h-40 md:w-92 md:h-102 rounded-full ${circle.color} blur-3xl`}
-            ></div>
-          ))}
-
-          <div className="relative z-10 w-full max-w-full text-center px-4 overflow-hidden">
-            <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-2 break-words">
-              {slide.title}
+        key={slide.id}
+        className={`absolute inset-0 md:inset-12 flex flex-col items-center justify-center px-2 sm:px-6 md:px-8 transition-opacity duration-300 ${
+          index === currentSlide ? "opacity-100" : "opacity-0"
+        } max-w-full`}
+      >
+        {/* Círculos decorativos */}
+        {slide.circles.map((circle, i) => (
+          <div
+            key={i}
+            className={`absolute ${circle.position} w-60 h-70 md:w-92 md:h-102 rounded-full ${circle.color} blur-3xl`}
+          ></div>
+        ))}
+      
+        <div className="relative z-10 w-full max-w-full text-center px-4 overflow-hidden -translate-y-20 md:-translate-y-0 transition-transform duration-300">
+          <h2 className="text-white font-[dancing] text-left sm:text-center text-3xl md:text-5xl tracking-tight mb-2 break-words">
+            {slide.title}
+          </h2>
+          <div className="mb-6">
+            <h1
+              className={`text-6xl sm:text-6xl md:text-8xl font-[poppins] text-transparent bg-clip-text bg-gradient-to-r ${slide.gradient} break-words text-left sm:text-center`}
+            >
+              {slide.highlight}
             </h1>
-            <div className="mb-6">
-              <h2
-                className={`text-5xl sm:text-6xl md:text-7xl font-bold font-pacifico text-transparent bg-clip-text bg-gradient-to-r ${slide.gradient} break-words`}
-              >
-                {slide.highlight}
-              </h2>
-            </div>
-            <p className="text-gray-400 text-md sm:text-lg md:text-xl max-w-full mx-auto px-4 break-words">
-              {slide.subtitle}
-            </p>
           </div>
+          <p className="text-gray-400 text-md sm:text-lg md:text-md max-w-full mx-auto px-4 break-words text-left sm:text-center">
+            {slide.subtitle}
+          </p>
         </div>
+      </div>
       ))}
 
       <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-2">
