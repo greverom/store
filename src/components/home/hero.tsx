@@ -5,22 +5,26 @@ import { motion, useInView } from "framer-motion"
 
 const slides = [
   {
-    id: 3,
-    title: "Experiencia Cindy",
-    subtitle: "Donde la belleza y el sabor se encuentran",
-    bgClass: "bg-gradient-to-r from-purple-50 to-pink-50",
-  },
-  {
     id: 1,
-    title: "Belleza que transforma",
+    title: "Belleza que",
+    highlight: "Transforma",
     subtitle: "Descubre productos que realzan tu belleza natural",
-    bgClass: "bg-gradient-to-r from-pink-50 to-purple-50",
+    circles: [
+      { position: "top-16 left-4 sm:left-10", color: "bg-purple-400/20" },
+      { position: "bottom-14 right-4 sm:right-10", color: "bg-pink-400/20" },
+    ],
+    gradient: "from-purple-300 via-pink-300 to-rose-200",
   },
   {
     id: 2,
-    title: "Dulzura artesanal",
+    title: "Dulzura",
+    highlight: "Artesanal",
     subtitle: "Postres hechos con amor para momentos especiales",
-    bgClass: "bg-gradient-to-r from-amber-50 to-rose-50",
+    circles: [
+      { position: "top-14 right-4 sm:right-10", color: "bg-amber-300/20" },
+      { position: "bottom-16 left-4 sm:left-10", color: "bg-pink-300/20" },
+    ],
+    gradient: "from-amber-300 via-rose-300 to-pink-200",
   },
 ]
 
@@ -30,12 +34,12 @@ export default function Hero() {
   const isInView = useInView(ref, { amount: 0.3, once: true })
 
   useEffect(() => {
-    const duration = currentSlide === 0 ? 10000 : 5000
-  
+    const duration = currentSlide === 0 ? 10000 : 8000
+
     const timeout = setTimeout(() => {
       setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1))
     }, duration)
-  
+
     return () => clearTimeout(timeout)
   }, [currentSlide])
 
@@ -45,24 +49,35 @@ export default function Hero() {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-      className="relative h-[100vh] w-full overflow-hidden"
+      className="relative h-[100vh] w-full overflow-y-hidden bg-gradient-to-br from-gray-950 to-gray-900"
     >
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className={`absolute inset-0 flex flex-col items-center justify-center px-4 transition-opacity duration-1000 ${
+          className={`absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 transition-opacity duration-1000 ${
             index === currentSlide ? "opacity-100" : "opacity-0"
-          } ${slide.bgClass}`}
+          } max-w-full`}
         >
-          <div
-            className={`transform transition-transform duration-1000 ${
-              index === currentSlide ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-            }`}
-          >
-            <h1 className="mb-4 text-center text-5xl md:text-6xl font-[Pacifico] text-pink-600">
+          {/* Círculos decorativos */}
+          {slide.circles.map((circle, i) => (
+            <div
+              key={i}
+              className={`absolute ${circle.position} w-40 h-40 md:w-92 md:h-102 rounded-full ${circle.color} blur-3xl`}
+            ></div>
+          ))}
+
+          <div className="relative z-10 w-full max-w-full text-center px-4 overflow-hidden">
+            <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-2 break-words">
               {slide.title}
             </h1>
-            <p className="text-center text-gray-600 md:text-xl font-[Inter] font-light">
+            <div className="mb-6">
+              <h2
+                className={`text-5xl sm:text-6xl md:text-7xl font-bold font-pacifico text-transparent bg-clip-text bg-gradient-to-r ${slide.gradient} break-words`}
+              >
+                {slide.highlight}
+              </h2>
+            </div>
+            <p className="text-gray-400 text-md sm:text-lg md:text-xl max-w-full mx-auto px-4 break-words">
               {slide.subtitle}
             </p>
           </div>
@@ -75,7 +90,7 @@ export default function Hero() {
             key={index}
             onClick={() => setCurrentSlide(index)}
             className={`h-2 w-2 rounded-full transition-all ${
-              index === currentSlide ? "bg-gray-800 w-4" : "bg-gray-400"
+              index === currentSlide ? "bg-white w-4" : "bg-gray-500"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

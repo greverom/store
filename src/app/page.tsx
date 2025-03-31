@@ -8,7 +8,7 @@ import CindyBakeryShowcase from "@/components/home/bakeryShowCase"
 export default function HomePage() {
   return (
     <>
-      <main className="min-h-screen bg-white -mt-[73px]">
+      <main className="min-h-screen bg-white -mt-[74px]">
         <Hero />
         <CindyBeautyShowcase/>
         <CindyBakeryShowcase/>

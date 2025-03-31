@@ -67,7 +67,7 @@ export default function CindyBeautyShowcase() {
         <motion.h2
           variants={itemVariants}
           custom="left"
-          className="text-5xl md:text-6xl mb-4 pl-3 sm:pl-4 md:pl-0 bg-gradient-to-r from-pink-300 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+          className="text-5xl md:text-6xl mb-4 pl-3 sm:pl-4 md:pl-0 bg-gradient-to-r font-[Pacifico] from-pink-300 via-purple-400 to-pink-400 bg-clip-text text-transparent"
         >
           Cindy Beauty
         </motion.h2>
