@@ -36,36 +36,36 @@ export default function GeneralHeader() {
   }
   
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-100 py-6 bg-white">
+    <header className="sticky top-0 z-50 border-b border-gray-100 py-6 bg-gradient-to-r from-rose-200 via-white to-pink-200">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4">
-        <div className="text-2xl font-light tracking-wider text-gray-800">CINDY</div>
 
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden text-gray-600 hover:text-gray-900"
+          className="md:hidden ml-4 text-gray-600 hover:text-gray-900"
           aria-label="Menú"
         >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {mobileMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
         </button>
 
         <nav className="hidden md:flex space-x-8">
           <Link href="/" className="text-sm text-gray-600 hover:text-gray-900">Inicio</Link>
-          <button onClick={() => scrollToSection("belleza")} className="text-sm text-gray-600 hover:text-gray-900">
+          <button onClick={() => scrollToSection("belleza")} className="text-md text-gray-600 hover:text-gray-900">
             Belleza
           </button>
 
-          <button onClick={() => scrollToSection("dulces")} className="text-sm text-gray-600 hover:text-gray-900">
+          <button onClick={() => scrollToSection("dulces")} className="text-md text-gray-600 hover:text-gray-900">
             Bakery
           </button>
 
-          <button onClick={() => scrollToSection("nosotros")} className="text-sm text-gray-600 hover:text-gray-900">
+          {/* <button onClick={() => scrollToSection("nosotros")} className="text-sm text-gray-600 hover:text-gray-900">
             Nosotros
           </button>
 
           <button onClick={() => scrollToSection("contacto")} className="text-sm text-gray-600 hover:text-gray-900">
             Contacto
-          </button>
+          </button> */}
         </nav>
+        
 
         <div className="flex space-x-4">
           <button aria-label="Buscar" className="text-gray-600 hover:text-gray-900">
@@ -138,7 +138,7 @@ export default function GeneralHeader() {
           Bakery
         </button>
 
-        <button
+        {/* <button
           onClick={() => scrollToSection("nosotros")}
           className="text-sm text-gray-600 hover:text-gray-900 text-left"
         >
@@ -150,7 +150,7 @@ export default function GeneralHeader() {
           className="text-sm text-gray-600 hover:text-gray-900 text-left"
         >
           Contacto
-        </button>
+        </button> */}
       </div>
     </motion.div>
   )}
