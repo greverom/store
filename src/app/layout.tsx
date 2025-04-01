@@ -17,13 +17,13 @@ const pacifico = Pacifico({
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["500"],
+  weight: ["600"],
   variable: "--font-poppins",
 })
 
 const dancing = Dancing_Script({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["700"],
   variable: "--font-dancing",
 })
 
