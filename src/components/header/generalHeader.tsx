@@ -36,7 +36,7 @@ export default function GeneralHeader() {
   }
   
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-100 py-6 bg-white">
+    <header className="sticky top-0 z-50 py-4 md:py-8 bg-white/50 backdrop-blur-sm">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4">
 
         <button

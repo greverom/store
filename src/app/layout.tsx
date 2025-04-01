@@ -18,7 +18,7 @@ const pacifico = Pacifico({
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["800"],
+  weight: ["500"],
   variable: "--font-poppins",
 })
 

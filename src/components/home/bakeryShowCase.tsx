@@ -57,7 +57,7 @@ export default function CindyBakeryShowcase() {
   return (
     <section
       id="dulces"
-      className="container bg-gray-500/10 backdrop-blur-full mx-auto min-h-[90vh] max-w-full 
+      className="container bg-gray-400/10 backdrop-blur-full mx-auto min-h-[100vh] max-w-full 
                 relative z-10 flex flex-col items-center justify-center text-center md:text-left 
                 pt-20 md:pt-10 gap-5 md:gap-30"
     >
@@ -73,10 +73,11 @@ export default function CindyBakeryShowcase() {
         <motion.h1
           variants={itemVariants}
           custom="left"
-          className="text-4xl md:text-7xl mb-4 pl-3 sm:pl-4 md:pl-[6%] font-[Pacifico] bg-gradient-to-r 
+          className="text-4xl md:text-7xl mb-4 pl-3 sm:pl-4 md:pl-[6%] tracking-tighter
+ font-[Poppins] bg-gradient-to-r 
                     from-amber-400 via-rose-400 to-pink-400 bg-clip-text text-transparent"
         >
-          Cindy Bakery
+          Dulce Canela
         </motion.h1>
 
         <motion.p

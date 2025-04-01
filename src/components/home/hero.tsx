@@ -49,12 +49,13 @@ export default function Hero() {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-      className="relative backdrop-blur-3xl bg-gray-300/10  min-h-[100vh] w-full rounded-none"
+      className="relative backdrop-blur-full bg-gray-500/10 min-h-[60vh] md:min-h-[100vh] w-full rounded-none"
     >
       {slides.map((slide, index) => (
         <div
         key={slide.id}
-        className={`absolute inset-0 flex flex-col items-center justify-center px-2 md:px-8 transition-opacity duration-1800 ease-in-out ${
+        className={`absolute inset-0 flex flex-col items-center justify-center px-2 md:px-8 transition-opacity 
+                    duration-1800 ease-in-out ${
           index === currentSlide ? "opacity-100" : "opacity-0"
         } max-w-full`}
       >
@@ -66,13 +67,15 @@ export default function Hero() {
           ></div>
         ))}
       
-        <div className="relative z-10 w-full max-w-full text-center px-4 overflow-hidden -translate-y-30 md:-translate-y-5 transition-all duration-1800 ease-in-out">
+        <div className="relative z-10 w-full max-w-full text-center px-4 overflow-hidden  md:-translate-y-5 
+                        transition-all duration-1800 ease-in-out">
           <h2 className="text-gray-600 font-[dancing] text-center text-2xl md:text-4xl tracking-tight mb-2 break-words">
             {slide.title}
           </h2>
           <div className="mb-2">
             <h1
-              className={`text-5xl md:text-8xl font-[poppins] text-transparent bg-clip-text bg-gradient-to-r ${slide.gradient} break-words text-center`}
+              className={`text-5xl md:text-8xl font-[poppins] text-transparent bg-clip-text bg-gradient-to-r 
+                          ${slide.gradient} break-words text-center`}
             >
               {slide.highlight}
             </h1>
