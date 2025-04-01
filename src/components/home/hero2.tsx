@@ -27,16 +27,8 @@ function ElegantShape({
 }) {
   return (
     <motion.div
-      initial={{
-        opacity: 0,
-        y: -150,
-        rotate: rotate - 15,
-      }}
-      animate={{
-        opacity: 1,
-        y: 0,
-        rotate: rotate,
-      }}
+      initial={{ opacity: 0, y: -150, rotate: rotate - 15 }}
+      animate={{ opacity: 1, y: 0, rotate }}
       transition={{
         duration: 2.4,
         delay,
@@ -46,18 +38,9 @@ function ElegantShape({
       className={cn("absolute", className)}
     >
       <motion.div
-        animate={{
-          y: [0, 15, 0],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-        style={{
-          width,
-          height,
-        }}
+        animate={{ y: [0, 15, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        style={{ width, height }}
         className="relative"
       >
         <div
@@ -65,10 +48,10 @@ function ElegantShape({
             "absolute inset-0 rounded-full",
             "bg-gradient-to-r to-transparent",
             gradient,
-            "backdrop-blur-[2px] border-2 border-white/[0.15]",
+            "backdrop-blur-[2px] border-2 border-white/[0.1]",
             "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
             "after:absolute after:inset-0 after:rounded-full",
-            "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]",
+            "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.15),transparent_70%)]"
           )}
         />
       </motion.div>
@@ -80,7 +63,6 @@ export default function HeroGeometric({
   title1 = "Belleza y Dulzura",
   title2 = "Experiencia Cindy",
 }: {
-  badge?: string
   title1?: string
   title2?: string
 }) {
@@ -98,48 +80,48 @@ export default function HeroGeometric({
   }
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white-100/40">
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-200/[0.05] blur-3xl" />
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#1a0c1f]">
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/[0.1] via-transparent to-pink-900/[0.1] blur-2xl" />
 
+      {/* Formas flotantes con colores oscuros */}
       <div className="absolute inset-0 overflow-hidden">
-        <ElegantShape delay={0.3} width={600} height={140} rotate={12} gradient="from-indigo-500/[0.2]" className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]" />
-        <ElegantShape delay={0.5} width={500} height={120} rotate={-15} gradient="from-rose-500/[0.2]" className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]" />
-        <ElegantShape delay={0.4} width={300} height={80} rotate={-8} gradient="from-violet-500/[0.2]" className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]" />
-        <ElegantShape delay={0.6} width={200} height={60} rotate={20} gradient="from-amber-500/[0.2]" className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]" />
-        <ElegantShape delay={0.7} width={150} height={40} rotate={-25} gradient="from-cyan-500/[0.2]" className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]" />
+        <ElegantShape delay={0.3} width={400} height={100} rotate={12} gradient="from-purple-600/[0.25]" className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]" />
+        <ElegantShape delay={0.5} width={320} height={90} rotate={-15} gradient="from-rose-600/[0.25]" className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]" />
+        <ElegantShape delay={0.4} width={260} height={80} rotate={-8} gradient="from-fuchsia-500/[0.25]" className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]" />
+        <ElegantShape delay={0.6} width={200} height={60} rotate={20} gradient="from-pink-600/[0.25]" className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]" />
+        <ElegantShape delay={0.7} width={180} height={50} rotate={-25} gradient="from-violet-500/[0.25]" className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]" />
       </div>
 
+      {/* Texto principal */}
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center">
-
-
           <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
-          <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
-            <span className="bg-clip-text text-transparent bg-gradient-to-b from-gray-800 to-gray-500">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-300">
                 {title1}
-            </span>
-            <br />
-            <span
+              </span>
+              <br />
+              <span
                 className={cn(
-                "bg-clip-text text-transparent bg-gradient-to-r from-rose-300 via-pink-400 to-purple-400",
-                pacifico.className
+                  "bg-clip-text text-transparent bg-gradient-to-r from-rose-300 via-pink-400 to-purple-400",
+                  pacifico.className
                 )}
-            >
+              >
                 {title2}
-            </span>
+              </span>
             </h1>
           </motion.div>
 
           <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <p className="text-sm sm:text-lg md:text-xl text-gray-600 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-              Productos de belleza y postres artesanales en un solo lugar.  
-              Vive la elegancia, sabor y dulzura de Cindy.
+            <p className="text-sm sm:text-lg md:text-xl text-white/80 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
+              Productos de belleza y postres artesanales en un solo sitio. Vive la elegancia, sabor y dulzura.
             </p>
           </motion.div>
         </div>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-pink-100 via-transparent to-white/80 pointer-events-none" />
+      {/* Desvanecimiento inferior */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1a0c1f] via-transparent to-[#1a0c1f]/80 pointer-events-none" />
     </div>
   )
 }

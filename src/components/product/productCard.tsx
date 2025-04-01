@@ -6,7 +6,12 @@ import AddToCartButton from "@/components/shared/add-to-cart-button"
 import { BeautyProduct } from "@/models/product-belleza"
 import { useRouter } from "next/navigation"
 
-export default function ProductCard({ product }: { product: BeautyProduct }) {
+interface ProductCardProps {
+  product: BeautyProduct
+  buttonSize?: "normal" | "small"
+}
+
+export default function ProductCard({ product, buttonSize = "normal" }: ProductCardProps) {
   const [imageValid, setImageValid] = useState(true)
   const router = useRouter()
 
@@ -18,7 +23,6 @@ export default function ProductCard({ product }: { product: BeautyProduct }) {
 
   return (
     <div className="bg-white rounded-lg border border-gray-300 overflow-hidden max-w-[250px] scale-[0.95] lg:scale-100">
-
       <div onClick={goToDetail} className="relative h-32 md:h-40 w-full">
         <Image
           src={product.image_link}
@@ -49,6 +53,7 @@ export default function ProductCard({ product }: { product: BeautyProduct }) {
                 imagen: product.image_link,
                 categoria: product.product_type || "belleza",
               }}
+              size={buttonSize} 
               onClick={(e) => e.stopPropagation()}
             />
           </div>

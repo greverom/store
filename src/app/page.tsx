@@ -6,7 +6,7 @@ import Hero2 from "@/components/home/hero2"
 export default function HomePage() {
   return (
     <>
-      <main className="relative min-h-screen -mt-[68px] overflow-x-hidden">
+      <main className="relative min-h-screen overflow-x-hidden">
         <Hero2 />
         <CindyBeautyShowcase />
         <CindyBakeryShowcase />
