@@ -22,7 +22,7 @@ export default function ProductCard({ product, buttonSize = "normal" }: ProductC
   }
 
   return (
-    <div className="bg-white rounded-lg border border-gray-300 overflow-hidden max-w-[250px] scale-[0.95] lg:scale-100">
+    <div className="bg-white rounded-lg border border-gray-300 overflow-hidden max-w-[220px] scale-[0.95] lg:scale-100 shadow-md">
       <div onClick={goToDetail} className="relative h-32 md:h-40 w-full">
         <Image
           src={product.image_link}
@@ -42,7 +42,7 @@ export default function ProductCard({ product, buttonSize = "normal" }: ProductC
           {product.description || "Sin descripción"}
         </p>
         <div className="flex justify-between items-center">
-          <span className="text-md md:text-sm font-bold">${parseFloat(product.price || "0").toFixed(2)}</span>
+          <span className="text-sm md:text-sm ml-3 md:ml-0 font-bold">${parseFloat(product.price || "0").toFixed(2)}</span>
           <div className="ml-auto">
             <AddToCartButton
               product={{

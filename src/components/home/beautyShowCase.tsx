@@ -38,7 +38,7 @@ export default function CindyBeautyShowcase() {
     <section
       id="belleza"
       className="container bg-gray-100 mx-auto min-h-[90vh] max-w-full relative z-10 flex 
-                flex-col items-center justify-center text-center md:text-left pt-20 md:pt-30 gap-5 md:gap-0"
+                flex-col items-center justify-center text-center md:text-left pt-20 md:pt-30 gap-12 md:gap-18"
     >
       {/* Texto y botón */}
       <motion.div
@@ -51,7 +51,7 @@ export default function CindyBeautyShowcase() {
         <motion.h1
           variants={itemVariants}
           custom="left"
-          className="text-4xl md:text-7xl mb-4 pl-3 sm:pl-4 md:pl-[6%] bg-gradient-to-r tracking-tighter 
+          className="text-4xl md:text-7xl mb-4 pl-0 md:pl-[6%] bg-gradient-to-r tracking-tighter 
                     font-[Poppins] from-pink-300 via-purple-400 to-pink-400 bg-clip-text text-transparent"
         >
           Cindy Beauty
@@ -61,7 +61,7 @@ export default function CindyBeautyShowcase() {
           variants={itemVariants}
           custom="left"
           className="w-[100%] md:w-34xl text-sm md:text-xl text-gray-700 mb-8 font-light mx-auto md:mx-0 
-                    pl-4 sm:pl-3 md:pl-[7%] text-left"
+                    pl-1 md:pl-[7%] text-left"
         >
           Cosméticos creados para potenciar tu brillo natural. Siente la elegancia en cada detalle.
         </motion.p>

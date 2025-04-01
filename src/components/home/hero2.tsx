@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Pacifico } from "next/font/google"
 import { cn } from "@/lib/utils"
+import { useEffect, useState } from "react"
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -79,11 +80,45 @@ export default function HeroGeometric({
     }),
   }
 
+  const phrases = [
+    {
+      title: "Descubre Tu Belleza Natural",
+      subtitle: "Potencia tu resplandor único con nuestros productos premium",
+    },
+    {
+      title: (
+        <>
+          Elegancia en <br className="md:hidden" />
+          Cada Detalle
+        </>
+      ),
+      subtitle: "Realza tu belleza con fórmulas exclusivas y delicadas",
+    },
+    {
+      title: (
+        <>
+          Transforma <br className="md:hidden" />
+          Tu Rutina
+        </>
+      ),
+      subtitle: "Lujo y cuidado en cada aplicación, resultados extraordinarios",
+    },
+  ]
+
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % phrases.length)
+    }, 7000)
+    return () => clearInterval(interval)
+  }, [phrases.length])
+
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#1a0c1f]">
+    <div className="relative w-full min-h-[65vh] md:min-h-[100vh] flex items-center justify-center overflow-hidden bg-[#270a27]">
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/[0.1] via-transparent to-pink-900/[0.1] blur-2xl" />
 
-      {/* Formas flotantes con colores oscuros */}
+      {/* Formas flotantes */}
       <div className="absolute inset-0 overflow-hidden">
         <ElegantShape delay={0.3} width={400} height={100} rotate={12} gradient="from-purple-600/[0.25]" className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]" />
         <ElegantShape delay={0.5} width={320} height={90} rotate={-15} gradient="from-rose-600/[0.25]" className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]" />
@@ -92,18 +127,16 @@ export default function HeroGeometric({
         <ElegantShape delay={0.7} width={180} height={50} rotate={-25} gradient="from-violet-500/[0.25]" className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]" />
       </div>
 
-      {/* Texto principal */}
+      {/* Contenido principal */}
       <div className="relative z-10 container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-8xl mx-auto text-center">
           <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-300">
-                {title1}
-              </span>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-6 md:mb-10 tracking-tight">
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-300">{title1}</span>
               <br />
               <span
                 className={cn(
-                  "bg-clip-text text-transparent bg-gradient-to-r from-rose-300 via-pink-400 to-purple-400",
+                  "bg-clip-text text-5xl sm:text-6xl md:text-9xl text-transparent bg-gradient-to-r from-rose-300 via-pink-400 to-purple-400",
                   pacifico.className
                 )}
               >
@@ -112,9 +145,16 @@ export default function HeroGeometric({
             </h1>
           </motion.div>
 
-          <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <p className="text-sm sm:text-lg md:text-xl text-white/80 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-              Productos de belleza y postres artesanales en un solo sitio. Vive la elegancia, sabor y dulzura.
+          {/* Frase rotativa con altura fija */}
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+          >
+            <p className="text-sm sm:text-lg md:text-md text-white/100 leading-relaxed font-light tracking-wide max-w-3xl mx-auto px-4 text-center h-[60px] flex items-center justify-center">
+              {phrases[currentSlide].subtitle}
             </p>
           </motion.div>
         </div>
