@@ -36,7 +36,7 @@ export default function GeneralHeader() {
   }
   
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-100 py-6 bg-gradient-to-r from-rose-200 via-white to-pink-200">
+    <header className="sticky top-0 z-50 border-b border-gray-100 py-6 bg-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4">
 
         <button
@@ -48,7 +48,7 @@ export default function GeneralHeader() {
         </button>
 
         <nav className="hidden md:flex space-x-8">
-          <Link href="/" className="text-sm text-gray-600 hover:text-gray-900">Inicio</Link>
+          <Link href="/" className="text-md text-gray-600 hover:text-gray-900">Inicio</Link>
           <button onClick={() => scrollToSection("belleza")} className="text-md text-gray-600 hover:text-gray-900">
             Belleza
           </button>
@@ -119,21 +119,21 @@ export default function GeneralHeader() {
         <Link
           href="/"
           onClick={() => setMobileMenuOpen(false)}
-          className="text-sm text-gray-700 hover:text-gray-900 text-left"
+          className="text-md text-gray-700 hover:text-gray-900 text-left"
         >
           Inicio
         </Link>
 
         <button
           onClick={() => scrollToSection("belleza")}
-          className="text-sm text-gray-600 hover:text-gray-900 text-left"
+          className="text-md text-gray-600 hover:text-gray-900 text-left"
         >
           Belleza
         </button>
 
         <button
           onClick={() => scrollToSection("dulces")}
-          className="text-sm text-gray-600 hover:text-gray-900 text-left"
+          className="text-md text-gray-600 hover:text-gray-900 text-left"
         >
           Bakery
         </button>

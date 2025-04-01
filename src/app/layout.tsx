@@ -3,6 +3,7 @@ import { CartProvider } from "@/context/cart.context"
 import { Dancing_Script, Inter, Pacifico, Poppins } from "next/font/google"
 import "./globals.css"
 import HeaderWrapper from "@/components/header/headerWrapper"
+import ParticleBackground from "@/components/shared/particleBackground"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -44,6 +45,7 @@ export default function RootLayout({
                     ${dancing.variable}
                     ${poppins.variable}`}>
       <body className="antialiased bg-white">
+      <ParticleBackground />
       <CartProvider>
         <div className="relative min-h-screen">
         <HeaderWrapper />
