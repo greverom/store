@@ -49,7 +49,7 @@ export default function Hero() {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-      className="relative backdrop-blur-full bg-gray-500/10 min-h-[60vh] md:min-h-[100vh] w-full rounded-none"
+      className="relative backdrop-blur-full bg-gray-100/10 min-h-[60vh] md:min-h-[100vh] w-full rounded-none"
     >
       {slides.map((slide, index) => (
         <div
@@ -69,18 +69,19 @@ export default function Hero() {
       
         <div className="relative z-10 w-full max-w-full text-center px-4 overflow-hidden  md:-translate-y-5 
                         transition-all duration-1800 ease-in-out">
-          <h2 className="text-gray-600 font-[dancing] text-center text-2xl md:text-4xl tracking-tight mb-2 break-words">
+          <h2 className="text-gray-600 font-[dancing] text-center text-2xl md:text-4xl tracking-tight 
+                        mb-2 break-words drop-shadow-md">
             {slide.title}
           </h2>
-          <div className="mb-2">
-            <h1
-              className={`text-5xl md:text-8xl font-[poppins] text-transparent bg-clip-text bg-gradient-to-r 
-                          ${slide.gradient} break-words text-center`}
-            >
-              {slide.highlight}
-            </h1>
-          </div>
-          <p className="text-gray-500 text-sm md:text-xl max-w-full mx-auto px-2 break-words text-center">
+
+          <h1
+            className={`text-5xl md:text-8xl font-[poppins] text-transparent bg-clip-text bg-gradient-to-r 
+                        ${slide.gradient} break-words text-center drop-shadow-lg`}
+          >
+            {slide.highlight}
+          </h1>
+
+          <p className="text-gray-500 text-sm md:text-xl max-w-full mx-auto px-2 break-words text-center drop-shadow-sm">
             {slide.subtitle}
           </p>
         </div>
@@ -93,7 +94,7 @@ export default function Hero() {
           key={index}
           onClick={() => setCurrentSlide(index)}
           className={`h-2 w-2 rounded-full transition-all ${
-            index === currentSlide ? "bg-rose-500 w-4" : "bg-gray-300"
+            index === currentSlide ? "bg-rose-400 w-4" : "bg-gray-400"
           }`}
           aria-label={`Go to slide ${index + 1}`}
         />

@@ -57,7 +57,7 @@ export default function CindyBeautyShowcase() {
   return (
     <section
       id="belleza"
-      className="container bg-gray-400/10 backdrop-blur-full mx-auto min-h-[100vh] max-w-full 
+      className="container bg-gray-100 mx-auto min-h-[100vh] max-w-full 
                 relative z-10 flex flex-col items-center justify-center text-center md:text-left 
                 pt-20 md:pt-10 gap-5 md:gap-30"
     >

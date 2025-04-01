@@ -1,12 +1,13 @@
-import Hero from "@/components/home/hero"
+
 import CindyBeautyShowcase from "@/components/home/beautyShowCase"
 import CindyBakeryShowcase from "@/components/home/bakeryShowCase"
+import Hero2 from "@/components/home/hero2"
 
 export default function HomePage() {
   return (
     <>
       <main className="relative min-h-screen -mt-[68px] overflow-x-hidden">
-        <Hero />
+        <Hero2 />
         <CindyBeautyShowcase />
         <CindyBakeryShowcase />
 

@@ -50,14 +50,13 @@ export default function ParticleBackground() {
     const animate = () => {
       ctx.clearRect(0, 0, dimensions.width, dimensions.height)
 
-      // Optional background fill (remove if you want it transparent)
-      ctx.fillStyle = "#f8f9fa"
+      ctx.fillStyle = "#dee2e6"
       ctx.fillRect(0, 0, dimensions.width, dimensions.height)
 
       particlesArray.forEach((particle) => {
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = "rgba(219, 112, 147, 0.8)" 
+        ctx.fillStyle = "rgba(219, 112, 147)" 
         ctx.fill()
 
         particle.x += particle.speedX
@@ -74,7 +73,7 @@ export default function ParticleBackground() {
   }, [dimensions])
 
   return (
-    <div className="fixed inset-0 -z-10 w-full h-screen">
+    <div className="fixed inset-0 w-full h-screen">
       <canvas ref={canvasRef} className="w-full h-full" />
     </div>
   )
