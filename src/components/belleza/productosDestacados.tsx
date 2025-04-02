@@ -3,14 +3,14 @@
 import { useEffect, useState } from "react"
 import ProductCard from "../product/productCard"
 import { BeautyProduct } from "@/models/product-belleza"
-import { getBeautyProducts } from "@/services/beautyProductService"
+import { getCachedBeautyHighlights } from "@/services/beautyProductService"
 
 export default function ProductosDestacados() {
   const [products, setProducts] = useState<BeautyProduct[]>([])
 
   useEffect(() => {
-    getBeautyProducts()
-      .then((data) => setProducts(data.slice(10, 18)))
+    getCachedBeautyHighlights()
+      .then((data) => setProducts(data))
       .catch((err) => console.error("Error al cargar productos destacados:", err))
   }, [])
 

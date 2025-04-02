@@ -8,10 +8,8 @@ export const useBeautyCategories = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setTimeout(() => {
       setCategories(staticBeautyCategories)
       setLoading(false)
-    }, 300) 
   }, [])
 
   return {
