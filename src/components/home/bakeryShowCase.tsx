@@ -57,7 +57,7 @@ export default function CindyBakeryShowcase() {
   return (
     <section
       id="dulces"
-      className="container bg-gray-100 mx-auto min-h-[100vh] max-w-full 
+      className="container bg-white-100 mx-auto min-h-[100vh] max-w-full 
                 relative z-10 flex flex-col items-center justify-center text-center md:text-left 
                 pt-20 md:pt-10 gap-5 md:gap-30"
     >

@@ -23,7 +23,7 @@ export default function MainHeader() {
         isHome ? "opacity-0 pointer-events-none" : "opacity-100"
       )}
     >
-      <div className="container mx-auto max-w-7xl px-7 md:px-0 py-3 md:py-4 flex justify-between items-center">
+      <div className="container mx-auto max-w-7xl md:max-w-full px-7 md:px-10 py-3 md:py-4 flex justify-between items-center">
         {getTitle() ? (
           <Link
             href="/"

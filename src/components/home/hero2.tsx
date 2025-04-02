@@ -109,7 +109,7 @@ export default function HeroGeometric({
   }, [phrases.length])
 
   return (
-    <div className="relative w-full min-h-[calc(60vh-70px)] md:min-h-[calc(80vh-70px)] flex items-center justify-center overflow-hidden bg-white">
+    <div className="relative w-full min-h-[calc(60vh-70px)] md:min-h-[calc(80vh-70px)] flex items-center justify-center overflow-hidden bg-white-100">
 
       {/* Formas flotantes */}
       {/* <div className="absolute inset-0 overflow-hidden">

@@ -37,7 +37,7 @@ export default function CindyBeautyShowcase() {
   return (
     <section
       id="belleza"
-      className="container bg-gray-100 mx-auto min-h-[90vh] max-w-full relative z-10 flex 
+      className="container bg-white-100 mx-auto min-h-[90vh] max-w-full relative z-10 flex 
                 flex-col items-center justify-center text-center md:text-left pt-20 md:pt-30 gap-12 md:gap-18"
     >
       {/* Texto y botón */}
