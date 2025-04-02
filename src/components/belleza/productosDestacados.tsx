@@ -15,7 +15,7 @@ export default function ProductosDestacados() {
   }, [])
 
   return (
-    <section className="pb-22 md:pb-10 pt-5 bg-gray-100">
+    <section className="pb-22 md:pb-10 pt-5 bg-white-100">
       <div className="container mx-auto max-w-7xl px-2 md:px-4">
         <h2 className="text-2xl md:text-3xl text-gray-600 font-bold text-left px-4 mb-9 md:mb-10">
           Productos del Mes
