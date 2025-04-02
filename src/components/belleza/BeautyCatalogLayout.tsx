@@ -15,8 +15,8 @@ export default function BeautyCatalogLayout() {
   } = useFilteredProductsContext()
 
   return (
-    <div className="max-w-8xl mx-auto pt-5 md:pt-10 px-1 md:px-8 min-h-screen">
-      <div className="flex flex-col lg:flex-row gap-12 lg:gap-0">
+    <div className="max-w-8xl mx-auto pt-5 md:pt-10 px-1 md:px-15 min-h-screen">
+      <div className="flex flex-col lg:flex-row gap-12 lg:gap-2">
         
         {/* Sidebar */}
         <BeautySidebar

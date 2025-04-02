@@ -19,7 +19,7 @@ export default function BeautyProductCatalogoView() {
   } = useFilteredProductsContext()
 
   return (
-    <div className="lg:w-4/5  md:px-5 lg:px-8 pb-8 md:py-10">
+    <div className="lg:w-4/5 md:px-5 lg:px-2 pb-7 md:py-10">
       <h2 className="px-4 text-2xl md:text-3xl font-bold text-left mb-6 md:mb-12">
         {selectedCategory
           ? beautyCategoryLabels[selectedCategory] || selectedCategory
