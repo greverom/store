@@ -3,6 +3,7 @@
 import ProductCard from "@/components/product/productCard"
 import Pagination from "../ui/pagination"
 import { useFilteredProductsContext } from "@/context/FilteredProductsContext"
+import { beautyCategoryLabels } from "@/models/dataBeautyCategory"
 
 export default function BeautyProductCatalogoView() {
   const {
@@ -18,8 +19,12 @@ export default function BeautyProductCatalogoView() {
   } = useFilteredProductsContext()
 
   return (
-    <div className="lg:w-4/5 md:px-5 lg:px-8">
-      <h2 className="text-3xl font-bold text-center mb-12">Productos</h2>
+    <div className="lg:w-4/5  md:px-5 lg:px-8 pb-8 md:py-10">
+      <h2 className="px-4 text-2xl md:text-3xl font-bold text-left mb-6 md:mb-12">
+        {selectedCategory
+          ? beautyCategoryLabels[selectedCategory] || selectedCategory
+          : "Todos los Productos"}
+      </h2>
 
       {isLoading ? (
         <p className="text-center py-10">Cargando productos...</p>
@@ -29,7 +34,7 @@ export default function BeautyProductCatalogoView() {
         </p>
       ) : (
         <>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-3">
             {productsToRender.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

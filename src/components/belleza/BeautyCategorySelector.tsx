@@ -19,18 +19,18 @@ export default function BeautyCategorySelector({
   if (!categories.length) return <p className="text-center py-6">No hay categorías disponibles.</p>
 
   return (
-    <section className="py-6 lg:py-0">
-      <h2 className="text-xd lg:text-xl font-bold mb-4 lg:mb-6 lg:text-left text-center">
-        Filtrar por Categoría
+    <section className="max-w-full border border-gray-300 rounded-2xl px-2 md:px-5 py-3 md:py-5">
+      <h2 className="text-xl lg:text-xl font-bold mb-7 lg:mb-6 lg:text-left text-left">
+        Filtrar por Producto
       </h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 lg:flex lg:flex-col">
+      <div className="grid grid-cols-3 md:grid-cols-5 gap-1 lg:flex lg:flex-col">
         <button
           onClick={() => onCategorySelect(null)}
-          className={`border rounded-lg px-3 py-2 text-sm font-medium transition text-center lg:text-left ${
+          className={` rounded-lg px-3 py-2 text-sm font-medium transition text-center lg:text-left ${
             selectedCategory === null
-              ? "bg-pink-500 text-white border-pink-500"
-              : "bg-white border-gray-200 hover:bg-pink-400 hover:text-white"
+              ? "bg-gray-700 text-white"
+              : "bg-white hover:bg-gray-400 hover:text-white"
           }`}
         >
           Ver todos
@@ -42,8 +42,8 @@ export default function BeautyCategorySelector({
             onClick={() => onCategorySelect(category)}
             className={`rounded-lg px-3 py-2 text-sm font-medium transition text-center lg:text-left ${
               selectedCategory === category
-                ? "bg-pink-400 text-white border-pink-500"
-                : "bg-white border-gray-200 hover:bg-pink-300 hover:text-white"
+               ? "bg-gray-700 text-white"
+              : "bg-white hover:bg-gray-400 hover:text-white"
             }`}
           >
             {beautyCategoryLabels[category] || category}

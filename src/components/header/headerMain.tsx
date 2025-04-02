@@ -11,23 +11,23 @@ export default function MainHeader() {
   const isHome = pathname === '/'
 
   const getTitle = () => {
-    if (pathname.startsWith('/belleza')) return 'Cindy Glow'
-    if (pathname.startsWith('/dulces')) return 'Bakery'
+    if (pathname.startsWith('/belleza')) return 'Catálogo'
+    if (pathname.startsWith('/dulces')) return 'Postres'
     return null
   }
 
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 bg-white shadow-md transition-opacity duration-300 ease-in-out",
+        "sticky top-0 z-50  bg-white",
         isHome ? "opacity-0 pointer-events-none" : "opacity-100"
       )}
     >
-      <div className="container mx-auto px-4 py-6 flex justify-between items-center">
+      <div className="container mx-auto max-w-7xl px-7 md:px-0 py-3 md:py-4 flex justify-between items-center">
         {getTitle() ? (
           <Link
             href="/"
-            className="text-xl font-bold bg-gradient-to-r from-rose-400 via-pink-400 to-purple-400 text-transparent bg-clip-text hover:opacity-90 transition-opacity duration-300"
+            className="text-xl font-bold"
           >
             {getTitle()}
           </Link>

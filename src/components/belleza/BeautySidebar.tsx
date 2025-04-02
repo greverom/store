@@ -21,8 +21,8 @@ export default function BeautySidebar({
   onPriceChange
 }: Props) {
   return (
-    <aside className="w-full md:w-1/1 lg:w-1/5 self-start lg:sticky top-35">
-      <div className="flex flex-col gap-3 p-2 lg:p-1">
+    <aside className="w-full md:w-1/1 lg:w-1/5 self-start">
+      <div className="flex flex-col gap-5 p-1 lg:p-1">
         <BeautyCategorySelector
           selectedCategory={selectedCategory}
           onCategorySelect={onCategorySelect}

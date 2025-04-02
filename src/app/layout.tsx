@@ -3,6 +3,7 @@ import { CartProvider } from "@/context/cart.context"
 import { Dancing_Script, Inter, Pacifico, Poppins } from "next/font/google"
 import "./globals.css"
 import HeaderWrapper from "@/components/header/headerWrapper"
+import ScrollToTop from "@/components/shared/scrollToTop"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function RootLayout({
                     ${poppins.variable}`}>
       <body className="antialiased bg-white">
       <CartProvider>
+      <ScrollToTop />
         <div className="relative min-h-screen">
         <HeaderWrapper />
           <main>{children}</main>
