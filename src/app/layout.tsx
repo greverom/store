@@ -11,7 +11,7 @@ const inter = Inter({
 
 const pacifico = Pacifico({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400"],
   variable: "--font-pacifico",
 })
 

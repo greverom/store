@@ -1,64 +1,58 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Pacifico } from "next/font/google"
 import { cn } from "@/lib/utils"
 import { useEffect, useState } from "react"
 
-const pacifico = Pacifico({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-pacifico",
-})
 
-function ElegantShape({
-  className,
-  delay = 0,
-  width = 400,
-  height = 100,
-  rotate = 0,
-  gradient = "from-white/[0.08]",
-}: {
-  className?: string
-  delay?: number
-  width?: number
-  height?: number
-  rotate?: number
-  gradient?: string
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: -150, rotate: rotate - 15 }}
-      animate={{ opacity: 1, y: 0, rotate }}
-      transition={{
-        duration: 2.4,
-        delay,
-        ease: [0.23, 0.86, 0.39, 0.96],
-        opacity: { duration: 1.2 },
-      }}
-      className={cn("absolute", className)}
-    >
-      <motion.div
-        animate={{ y: [0, 15, 0] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        style={{ width, height }}
-        className="relative"
-      >
-        <div
-          className={cn(
-            "absolute inset-0 rounded-full",
-            "bg-gradient-to-r to-transparent",
-            gradient,
-            "backdrop-blur-[2px] border-2 border-white/[0.1]",
-            "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
-            "after:absolute after:inset-0 after:rounded-full",
-            "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.15),transparent_70%)]"
-          )}
-        />
-      </motion.div>
-    </motion.div>
-  )
-}
+// function ElegantShape({
+//   className,
+//   delay = 0,
+//   width = 400,
+//   height = 100,
+//   rotate = 0,
+//   gradient = "from-white/[0.08]",
+// }: {
+//   className?: string
+//   delay?: number
+//   width?: number
+//   height?: number
+//   rotate?: number
+//   gradient?: string
+// }) {
+//   return (
+//     <motion.div
+//       initial={{ opacity: 0, y: -150, rotate: rotate - 15 }}
+//       animate={{ opacity: 1, y: 0, rotate }}
+//       transition={{
+//         duration: 2.4,
+//         delay,
+//         ease: [0.23, 0.86, 0.39, 0.96],
+//         opacity: { duration: 1.2 },
+//       }}
+//       className={cn("absolute", className)}
+//     >
+//       <motion.div
+//         animate={{ y: [0, 15, 0] }}
+//         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+//         style={{ width, height }}
+//         className="relative"
+//       >
+//         <div
+//           className={cn(
+//             "absolute inset-0 rounded-full",
+//             "bg-gradient-to-r to-transparent",
+//             gradient,
+//             "backdrop-blur-[2px] border-2 border-white/[0.1]",
+//             "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
+//             "after:absolute after:inset-0 after:rounded-full",
+//             "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.15),transparent_70%)]"
+//           )}
+//         />
+//       </motion.div>
+//     </motion.div>
+//   )
+// }
 
 export default function HeroGeometric({
   title1 = "Belleza y Dulzura",
@@ -115,29 +109,28 @@ export default function HeroGeometric({
   }, [phrases.length])
 
   return (
-    <div className="relative w-full min-h-[100vh] md:min-h-[95vh] flex items-center justify-center overflow-hidden bg-[#1b071b]">
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/[0.1] via-transparent to-pink-900/[0.1] blur-2xl" />
+    <div className="relative w-full min-h-[calc(60vh-70px)] md:min-h-[calc(80vh-70px)] flex items-center justify-center overflow-hidden bg-white">
 
       {/* Formas flotantes */}
-      <div className="absolute inset-0 overflow-hidden">
-        <ElegantShape delay={0.3} width={400} height={100} rotate={12} gradient="from-purple-600/[0.25]" className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]" />
-        <ElegantShape delay={0.5} width={320} height={90} rotate={-15} gradient="from-rose-600/[0.25]" className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]" />
-        <ElegantShape delay={0.4} width={260} height={80} rotate={-8} gradient="from-fuchsia-500/[0.25]" className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]" />
-        <ElegantShape delay={0.6} width={200} height={60} rotate={20} gradient="from-pink-600/[0.25]" className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]" />
-        <ElegantShape delay={0.7} width={180} height={50} rotate={-25} gradient="from-violet-500/[0.25]" className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]" />
-      </div>
+      {/* <div className="absolute inset-0 overflow-hidden">
+        <ElegantShape delay={0.5} width={300} height={90} rotate={12} gradient="from-purple-600/[0.15]" className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]" />
+        <ElegantShape delay={0.5} width={300} height={80} rotate={-15} gradient="from-rose-600/[0.15]" className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]" />
+        <ElegantShape delay={0.4} width={240} height={70} rotate={-8} gradient="from-fuchsia-500/[0.15]" className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]" />
+        <ElegantShape delay={0.6} width={190} height={50} rotate={20} gradient="from-pink-600/[0.15]" className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]" />
+        <ElegantShape delay={0.7} width={160} height={40} rotate={-25} gradient="from-violet-500/[0.15]" className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]" />
+      </div> */}
 
       {/* Contenido principal */}
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <div className="max-w-8xl mx-auto text-center">
           <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-6 md:mb-10 tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-300">{title1}</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold mb-6 md:mb-10 tracking-tight">
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-gray-700 to-gray-400">{title1}</span>
               <br />
               <span
                 className={cn(
-                  "bg-clip-text text-5xl sm:text-6xl md:text-9xl text-transparent bg-gradient-to-r from-rose-300 via-pink-400 to-purple-400",
-                  pacifico.className
+                  "bg-clip-text text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-transparent bg-gradient-to-r from-rose-300 via-pink-400 to-purple-400 font-[pacifico]" ,
+
                 )}
               >
                 {title2}
@@ -153,15 +146,14 @@ export default function HeroGeometric({
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
           >
-            <p className="text-sm sm:text-lg md:text-md text-white/100 leading-relaxed font-light tracking-wide max-w-3xl mx-auto px-4 text-center h-[60px] flex items-center justify-center">
+            <p className="text-sm sm:text-lg md:text-md text-white/600 leading-relaxed font-light tracking-wide max-w-3xl mx-auto px-4 text-center h-[60px] flex items-center justify-center">
               {phrases[currentSlide].subtitle}
             </p>
           </motion.div>
         </div>
       </div>
 
-      {/* Desvanecimiento inferior */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#1a0c1f] via-transparent to-[#1a0c1f]/80 pointer-events-none" />
+
     </div>
   )
 }
