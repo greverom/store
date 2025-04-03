@@ -29,7 +29,7 @@ const dancing = Dancing_Script({
 })
 
 export const metadata: Metadata = {
-  title: "Mi Tienda",
+  title: "Cindy's Store",
   description: "Productos de belleza y dulces artesanales",
 }
 

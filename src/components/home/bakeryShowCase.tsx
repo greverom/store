@@ -53,8 +53,8 @@ export default function CindyBakeryShowcase() {
           priority
           className="object-cover w-full h-full pointer-events-none opacity-70"
           style={{
-            maskImage: "linear-gradient(to bottom, transparent 0%, white 85%, white 28%, transparent 98%)",
-            WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, white 35%, white 65%, transparent 100%)",
+            maskImage: "linear-gradient(to bottom, transparent 0%, white 95%, white 28%, transparent 98%)",
+            WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, white 75%, white 65%, transparent 100%)",
           }}
         />
       </div>
@@ -71,8 +71,8 @@ export default function CindyBakeryShowcase() {
         <motion.h1
           variants={itemVariants}
           custom="left"
-          className="text-4xl md:text-7xl mb-4 pl-0 sm:pl-4 md:pl-[6%] tracking-tighter
-                    font-[Poppins] bg-gradient-to-r from-amber-400 via-rose-400 to-pink-400 bg-clip-text text-transparent"
+           className="text-4xl md:text-6xl mb-4 pl-0 md:pl-[6%] bg-gradient-to-r tracking-tighter 
+                    font-[Poppins] text-gray-600"
         >
           Dulce Canela
         </motion.h1>
@@ -93,9 +93,9 @@ export default function CindyBakeryShowcase() {
         >
           <Link
             href="/dulces"
-            className="inline-block px-8 py-3 text-sm rounded-full text-white 
-                      bg-gradient-to-r from-amber-400 to-pink-400 font-medium 
-                      transition-all duration-300 ease-in-out transform hover:scale-[1.1]"
+            className="inline-block px-8 py-3 text-sm rounded-xl text-gray-600
+                      bg-white border border-gray-400 transition-all 
+                      duration-300 ease-in-out transform hover:scale-110"
           >
             Tienda
           </Link>

@@ -125,11 +125,11 @@ export default function HeroGeometric({
         <div className="max-w-8xl mx-auto text-center">
           <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold mb-6 md:mb-10 tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-gray-700 to-gray-400">{title1}</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-gray-700 to-gray-500">{title1}</span>
               <br />
               <span
                 className={cn(
-                  "bg-clip-text text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-transparent bg-gradient-to-r from-rose-300 via-pink-400 to-purple-400 font-[pacifico]" ,
+                  "bg-clip-text text-5xl sm:text-7xl md:text-8xl lg:text-8xl text-[#8A8D91] font-[pacifico]" ,
 
                 )}
               >
@@ -146,7 +146,7 @@ export default function HeroGeometric({
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
           >
-            <p className="text-sm sm:text-lg md:text-md text-white/600 leading-relaxed font-light tracking-wide max-w-3xl mx-auto px-4 text-center h-[60px] flex items-center justify-center">
+            <p className="text-sm sm:text-lg md:text-md text-gray-500 leading-relaxed font-light tracking-wide max-w-3xl mx-auto px-4 text-center h-[60px] flex items-center justify-center">
               {phrases[currentSlide].subtitle}
             </p>
           </motion.div>

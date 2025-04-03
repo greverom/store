@@ -50,8 +50,8 @@ export default function CindyBeautyShowcase() {
           priority
           className="object-cover w-full h-full pointer-events-none"
           style={{
-            maskImage: "linear-gradient(to bottom, transparent 0%, white 90%, white 85%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, white 35%, white 85%, transparent 100%)",
+            maskImage: "linear-gradient(to bottom, transparent 0%, white 95%, white 85%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, white 75%, white 80%, transparent 100%)",
           }}
         />
       </div>
@@ -68,15 +68,15 @@ export default function CindyBeautyShowcase() {
           variants={itemVariants}
           custom="left"
           className="text-4xl md:text-6xl mb-4 pl-0 md:pl-[6%] bg-gradient-to-r tracking-tighter 
-                    font-[Poppins] from-pink-500 via-purple-500 to-pink-400 bg-clip-text text-transparent"
+                    font-[Poppins] text-gray-600"
         >
-          Cindy Beauty
+          Belleza 
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
           custom="left"
-          className="w-[100%] md:w-3xl text-sm md:text-xl text-gray-600 mb-8 font-light mx-auto md:mx-0 
+          className="w-[100%] md:w-3xl text-sm md:text-xl text-gray-500 mb-8 font-light mx-auto md:mx-0 
                     pl-1 md:pl-[7%] text-left"
         >
           Cosméticos creados para potenciar tu brillo natural. Siente la elegancia en cada detalle.
@@ -89,8 +89,8 @@ export default function CindyBeautyShowcase() {
         >
           <Link
             href="/belleza/catalogo"
-            className="inline-block px-8 py-3 text-sm rounded-full text-white 
-                      bg-gradient-to-r from-pink-400 to-purple-500 transition-all 
+            className="inline-block px-8 py-3 text-sm rounded-xl text-gray-600
+                      bg-white border border-gray-400 transition-all 
                       duration-300 ease-in-out transform hover:scale-110"
           >
             Tienda

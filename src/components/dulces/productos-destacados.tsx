@@ -15,7 +15,7 @@ export default function DulcesDestacados() {
   }, [])
 
   return (
-    <section className="pb-12 bg-transparent hide-scrollbar">
+    <section className="pb-22 md:pb-10 bg-white-100">
       <div className="container mx-auto max-w-7xl px-2 md:px-4">
         {/* <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Dulces Destacados</h2> */}
 

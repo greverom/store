@@ -12,7 +12,7 @@ export default function ProductCardDulce({ product }: { product: DessertProduct 
 
   return (
     <div className="bg-white rounded-lg border border-gray-300 shadow-md overflow-hidden flex flex-col h-full">
-      <div className="relative h-40 w-full">
+      <div className="relative h-45 w-full">
         <Image
           src={product.strMealThumb}
           alt={product.strMeal}
@@ -25,7 +25,7 @@ export default function ProductCardDulce({ product }: { product: DessertProduct 
         />
       </div>
 
-      <div className="p-2">
+      <div className="p-3">
         <h3 className="text-md font-semibold mb-2 line-clamp-1">{product.strMeal}</h3>
         {/* <p className="text-gray-600 text-sm mb-5 line-clamp-2">Producto artesanal</p> */}
 
