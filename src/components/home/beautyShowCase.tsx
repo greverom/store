@@ -3,6 +3,7 @@
 import { useRef } from "react"
 import { motion, useInView, type Variants } from "framer-motion"
 import Link from "next/link"
+import Image from "next/image"
 import ProductosDestacados from "@/components/belleza/productosDestacados"
 
 export default function CindyBeautyShowcase() {
@@ -38,21 +39,36 @@ export default function CindyBeautyShowcase() {
     <section
       id="belleza"
       className="container bg-white-100 mx-auto min-h-[90vh] max-w-full relative z-10 flex 
-                flex-col items-center justify-center text-center md:text-left pt-20 md:pt-30 gap-12 md:gap-18"
+             flex-col items-center justify-center text-center md:text-left pt-20 md:pt-30 gap-12 md:gap-18 
+             overflow-hidden overflow-y-auto hide-scrollbar"
     >
-      {/* Texto y botón */}
+      <div className="absolute inset-0 z-0 -translate-y-10">
+        <Image
+          src="/images/image-beauty.png"
+          alt="Fondo belleza"
+          fill
+          priority
+          className="object-cover w-full h-full pointer-events-none"
+          style={{
+            maskImage: "linear-gradient(to bottom, transparent 0%, white 65%, white 85%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, white 35%, white 85%, transparent 100%)",
+          }}
+        />
+      </div>
+
+      {/* Contenido */}
       <motion.div
         ref={textRef}
         initial="hidden"
         animate={textInView ? "visible" : "hidden"}
         variants={containerVariants}
-        className="flex flex-col md:items-start text-left w-[90%] px-0 sm:px-4 md:px-0 md:w-[85%] lg:w-[90%] md:mb-0 md:ml-0"
+        className="flex flex-col md:items-start text-left w-[90%] px-0 sm:px-4 md:px-0 md:w-[85%] lg:w-[90%] md:mb-0 md:ml-0 z-10"
       >
         <motion.h1
           variants={itemVariants}
           custom="left"
           className="text-4xl md:text-6xl mb-4 pl-0 md:pl-[6%] bg-gradient-to-r tracking-tighter 
-                    font-[Poppins] from-pink-300 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+                    font-[Poppins] from-pink-500 via-purple-500 to-pink-400 bg-clip-text text-transparent"
         >
           Cindy Beauty
         </motion.h1>
@@ -60,7 +76,7 @@ export default function CindyBeautyShowcase() {
         <motion.p
           variants={itemVariants}
           custom="left"
-          className="w-[100%] md:w-34xl text-sm md:text-xl text-gray-700 mb-8 font-light mx-auto md:mx-0 
+          className="w-[100%] md:w-3xl text-sm md:text-xl text-gray-600 mb-8 font-light mx-auto md:mx-0 
                     pl-1 md:pl-[7%] text-left"
         >
           Cosméticos creados para potenciar tu brillo natural. Siente la elegancia en cada detalle.
@@ -73,16 +89,16 @@ export default function CindyBeautyShowcase() {
         >
           <Link
             href="/belleza/catalogo"
-            className="inline-block px-8 py-3 text-sm rounded-full border border-pink-400 hover:text-white 
-                      hover:bg-gradient-to-r hover:from-pink-400 hover:to-purple-500 hover:border-transparent 
-                      transition-all duration-300 ease-in-out"
+            className="inline-block px-8 py-3 text-sm rounded-full text-white 
+                      bg-gradient-to-r from-pink-400 to-purple-500 transition-all 
+                      duration-300 ease-in-out transform hover:scale-110"
           >
             Tienda
           </Link>
         </motion.div>
       </motion.div>
 
-      <div ref={cardsRef} className="w-full">
+      <div ref={cardsRef} className="w-full z-10">
         <ProductosDestacados />
       </div>
     </section>

@@ -38,11 +38,11 @@ export default function ProductCard({ product, buttonSize = "normal" }: ProductC
 
       <div className="p-1 md:p-2 lg:p-3">
         <h3 className="text-base font-semibold mb-1 line-clamp-1">{product.name}</h3>
-        <p className="text-gray-600 text-xs mb-3 line-clamp-2">
+        {/* <p className="text-gray-600 text-xs mb-3 line-clamp-2">
           {product.description || "Sin descripción"}
-        </p>
+        </p> */}
         <div className="flex justify-between items-center">
-          <span className="text-sm md:text-sm ml-3 md:ml-0 font-bold">${parseFloat(product.price || "0").toFixed(2)}</span>
+          <span className="text-md md:text-sm ml-3 md:ml-0 font-bold">${parseFloat(product.price || "0").toFixed(2)}</span>
           <div className="ml-auto">
             <AddToCartButton
               product={{

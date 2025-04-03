@@ -3,6 +3,7 @@
 import { motion, useInView, type Variants } from "framer-motion"
 import { useRef } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Heart, ChefHat, Leaf } from "lucide-react"
 
 export default function CindyBakeryShowcase() {
@@ -59,8 +60,23 @@ export default function CindyBakeryShowcase() {
       id="dulces"
       className="container bg-white-100 mx-auto min-h-[100vh] max-w-full 
                 relative z-10 flex flex-col items-center justify-center text-center md:text-left 
-                pt-20 md:pt-10 gap-5 md:gap-30"
+                pt-20 md:pt-10 gap-5 md:gap-30 overflow-hidden"
     >
+      {/* Imagen de fondo */}
+      <div className="absolute inset-0 z-0 -translate-y-25">
+        <Image
+          src="/images/image-bakery.png"
+          alt="Fondo Dulce Canela"
+          fill
+          priority
+          className="object-cover w-full h-full pointer-events-none"
+          style={{
+            maskImage: "linear-gradient(to bottom, transparent 0%, white 65%, white 70%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, white 45%, white 85%, transparent 100%)",
+          }}
+        />
+      </div>
+
       {/* Texto y botón */}
       <motion.div
         ref={textRef}
@@ -68,7 +84,7 @@ export default function CindyBakeryShowcase() {
         animate={textInView ? "visible" : "hidden"}
         variants={containerVariants}
         className="flex flex-col md:items-start text-left w-[90%] px-0 sm:px-4 md:px-0 md:w-[85%] lg:w-[90%] 
-                    md:mb-15 md:ml-0"
+                    md:mb-15 md:ml-0 z-10"
       >
         <motion.h1
           variants={itemVariants}
@@ -96,9 +112,9 @@ export default function CindyBakeryShowcase() {
         >
           <Link
             href="/dulces"
-            className="inline-block px-8 py-3 text-sm rounded-full border border-amber-400 text-amber-500 
-                        bg-transparent font-medium hover:text-white hover:bg-gradient-to-r hover:from-amber-400
-                       hover:to-pink-400 hover:border-transparent transition-all duration-300 ease-in-out"
+            className="inline-block px-8 py-3 text-sm rounded-full text-white 
+                      bg-gradient-to-r from-amber-400 to-pink-400 font-medium 
+                      transition-all duration-300 ease-in-out transform hover:scale-[1.1]"
           >
             Descubrir Repostería
           </Link>
@@ -111,7 +127,7 @@ export default function CindyBakeryShowcase() {
         initial="hidden"
         animate={cardsInView ? "visible" : "hidden"}
         variants={containerVariants}
-        className="w-[75%] md:w-[77%] grid grid-cols-1 md:grid-cols-3 gap-6 mt-8"
+        className="w-[75%] md:w-[77%] grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 z-10"
       >
         {benefits.map((benefit, index) => {
           const direction = index % 2 === 0 ? "left" : "right"
