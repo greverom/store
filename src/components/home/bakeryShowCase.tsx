@@ -4,14 +4,14 @@ import { motion, useInView, type Variants } from "framer-motion"
 import { useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Heart, ChefHat, Leaf } from "lucide-react"
+import DulcesDestacados from "../dulces/productos-destacados"
+
 
 export default function CindyBakeryShowcase() {
   const textRef = useRef(null)
   const cardsRef = useRef(null)
 
   const textInView = useInView(textRef, { amount: 0.2, once: false })
-  const cardsInView = useInView(cardsRef, { amount: 0.2, once: false })
 
   const containerVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
@@ -37,42 +37,24 @@ export default function CindyBakeryShowcase() {
     },
   }
 
-  const benefits = [
-    {
-      title: "Ingredientes naturales",
-      description: "Usamos solo ingredientes frescos y reales.",
-      icon: <Leaf className="w-10 h-10 text-green-500" />,
-    },
-    {
-      title: "Hecho con amor",
-      description: "Cada dulce lleva un toque de cariño.",
-      icon: <Heart className="w-10 h-10 text-rose-500" />,
-    },
-    {
-      title: "Sabor casero",
-      description: "El gusto de lo hecho en casa.",
-      icon: <ChefHat className="w-10 h-10 text-amber-500" />,
-    },
-  ]
-
   return (
     <section
       id="dulces"
-      className="container bg-white-100 mx-auto min-h-[100vh] max-w-full 
-                relative z-10 flex flex-col items-center justify-center text-center md:text-left 
-                pt-20 md:pt-10 gap-5 md:gap-30 overflow-hidden"
+      className="container bg-white-100 mx-auto min-h-[90vh] max-w-full relative z-10 flex 
+                flex-col items-center justify-center text-center md:text-left md:pt-30 gap-12 md:gap-18 
+                overflow-hidden overflow-y-auto"
     >
       {/* Imagen de fondo */}
-      <div className="absolute inset-0 z-0 -translate-y-25">
+      <div className="absolute inset-0 z-0 -translate-y-30 md:-translate-y-50">
         <Image
           src="/images/image-bakery.png"
           alt="Fondo Dulce Canela"
           fill
           priority
-          className="object-cover w-full h-full pointer-events-none"
+          className="object-cover w-full h-full pointer-events-none opacity-70"
           style={{
-            maskImage: "linear-gradient(to bottom, transparent 0%, white 65%, white 70%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, white 45%, white 85%, transparent 100%)",
+            maskImage: "linear-gradient(to bottom, transparent 0%, white 85%, white 28%, transparent 98%)",
+            WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, white 35%, white 65%, transparent 100%)",
           }}
         />
       </div>
@@ -89,9 +71,8 @@ export default function CindyBakeryShowcase() {
         <motion.h1
           variants={itemVariants}
           custom="left"
-          className="text-4xl md:text-7xl mb-4 pl-3 sm:pl-4 md:pl-[6%] tracking-tighter
- font-[Poppins] bg-gradient-to-r 
-                    from-amber-400 via-rose-400 to-pink-400 bg-clip-text text-transparent"
+          className="text-4xl md:text-7xl mb-4 pl-0 sm:pl-4 md:pl-[6%] tracking-tighter
+                    font-[Poppins] bg-gradient-to-r from-amber-400 via-rose-400 to-pink-400 bg-clip-text text-transparent"
         >
           Dulce Canela
         </motion.h1>
@@ -99,10 +80,10 @@ export default function CindyBakeryShowcase() {
         <motion.p
           variants={itemVariants}
           custom="left"
-          className="w-full text-sm md:text-xl text-gray-700 mb-8 font-light mx-auto md:mx-0 pl-4 sm:pl-3 
+          className="w-full text-sm md:text-xl text-gray-700 mb-8 font-light mx-auto md:mx-0 pl-1 sm:pl-3 
                     md:pl-[6%] text-left"
         >
-          Endulzamos tus días con postres artesanales elaborados con amor y los mejores ingredientes.
+          Endulzamos tus días con postres elaborados con los mejores ingredientes.
         </motion.p>
 
         <motion.div
@@ -116,44 +97,15 @@ export default function CindyBakeryShowcase() {
                       bg-gradient-to-r from-amber-400 to-pink-400 font-medium 
                       transition-all duration-300 ease-in-out transform hover:scale-[1.1]"
           >
-            Descubrir Repostería
+            Tienda
           </Link>
         </motion.div>
       </motion.div>
 
-      {/* Cards de beneficios */}
-      <motion.div
-        ref={cardsRef}
-        initial="hidden"
-        animate={cardsInView ? "visible" : "hidden"}
-        variants={containerVariants}
-        className="w-[75%] md:w-[77%] grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 z-10"
-      >
-        {benefits.map((benefit, index) => {
-          const direction = index % 2 === 0 ? "left" : "right"
-
-          return (
-            <motion.div
-              key={index}
-              custom={direction}
-              initial="hidden"
-              animate={cardsInView ? "visible" : "hidden"}
-              variants={itemVariants}
-              className="flex flex-col items-center text-center p-5"
-            >
-              <div className="w-7 h-7 flex items-center justify-center mb-4 mx-auto">
-                {benefit.icon}
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800 text-center">
-                {benefit.title}
-              </h3>
-              <p className="text-gray-600 text-center text-md">
-                {benefit.description}
-              </p>
-            </motion.div>
-          )
-        })}
-      </motion.div>
+      {/* Productos destacados */}
+      <div ref={cardsRef} className="w-full z-10">
+        <DulcesDestacados />
+      </div>
     </section>
   )
 }

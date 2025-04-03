@@ -50,7 +50,7 @@ export default function CindyBeautyShowcase() {
           priority
           className="object-cover w-full h-full pointer-events-none"
           style={{
-            maskImage: "linear-gradient(to bottom, transparent 0%, white 65%, white 85%, transparent 100%)",
+            maskImage: "linear-gradient(to bottom, transparent 0%, white 90%, white 85%, transparent 100%)",
             WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, white 35%, white 85%, transparent 100%)",
           }}
         />
