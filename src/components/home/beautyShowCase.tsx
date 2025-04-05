@@ -3,7 +3,7 @@
 import { useRef } from "react"
 import { motion, useInView, type Variants } from "framer-motion"
 import Link from "next/link"
-import Image from "next/image"
+// import Image from "next/image"
 // import ProductosDestacados from "@/components/belleza/productosDestacados"
 
 export default function CindyBeautyShowcase() {
@@ -38,12 +38,12 @@ export default function CindyBeautyShowcase() {
   return (
     <section
       id="belleza"
-      className="container mx-auto min-h-[80vh] md:min-h-[100vh] max-w-full relative flex flex-col items-center 
+      className="container mx-auto min-h-[500px] sm:min-h-[600px] md:h-[720px] lg:h-[800px] max-w-full relative flex flex-col items-center 
                  justify-center text-center md:text-left pt-20 md:pt-30 gap-12 md:gap-18 overflow-hidden"
     >
-      {/* Imagen decorativa a la derecha */}
-      <div className="absolute right-[-95px] md:right-10 lg:right-60 top-33 sm:top-30 md:top-40 w-[400px] 
-                      sm:w-[380px] md:w-[420px] lg:w-[600px] h-full z-0 pointer-events-none">
+      {/* Imagen decorativa a la derecha
+      <div className="absolute right-[-95px] md:right-10 lg:right-60 top-33 sm:top-30 md:top-70 w-[400px] 
+                      sm:w-[380px] md:w-[420px] lg:w-[550px] h-full z-0 pointer-events-none">
         <Image
           src="/images/image-beauty-sinfonde.png"
           alt="Cosméticos decorativos"
@@ -57,7 +57,7 @@ export default function CindyBeautyShowcase() {
               "linear-gradient(to bottom, transparent 0%, white 0%, white 90%, transparent 100%)",
           }}
         />
-      </div>
+      </div> */}
 
       {/* Contenido */}
       <motion.div
@@ -66,12 +66,12 @@ export default function CindyBeautyShowcase() {
         animate={textInView ? "visible" : "hidden"}
         variants={containerVariants}
         className="relative z-10 flex flex-col justify-start md:items-start text-left w-[90%] 
-                    md:w-[88%] lg:w-[75%] mt-[-300px] md:mt-[-300px] lg-[-300px]"
+                   sm:w-[90%] md:w-[88%] lg:w-[75%] mt-10 sm:mt-70 md:mt-30 lg:mt-85"
       >
         <motion.h1
           variants={itemVariants}
           custom="left"
-          className="text-4xl md:text-8xl mb-4 font-[Poppins] text-gray-700"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl mb-4 font-[Poppins] text-gray-700"
         >
           Belleza
         </motion.h1>
@@ -79,7 +79,7 @@ export default function CindyBeautyShowcase() {
         <motion.p
           variants={itemVariants}
           custom="left"
-          className="md:w-2xl text-sm md:text-xl text-gray-500 mb-8 font-light"
+          className="w-sm sm:w-md md:w-2xl text-sm md:text-xl text-gray-600 mb-8 font-light"
         >
           Cosméticos creados para potenciar tu brillo natural. Siente la elegancia en cada detalle.
         </motion.p>

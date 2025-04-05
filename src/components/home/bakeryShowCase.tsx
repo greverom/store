@@ -3,7 +3,7 @@
 import { motion, useInView, type Variants } from "framer-motion"
 import { useRef } from "react"
 import Link from "next/link"
-import Image from "next/image"
+// import Image from "next/image"
 // import DulcesDestacados from "../dulces/productos-destacados"
 
 export default function CindyBakeryShowcase() {
@@ -38,10 +38,10 @@ export default function CindyBakeryShowcase() {
   return (
     <section
       id="dulces"
-      className="container mx-auto min-h-[80vh] md:min-h-[100vh] max-w-full relative z-10 flex flex-col items-center 
+      className="container mx-auto min-h-[70vh] sm:min-h-[80vh] md:min-h-[100vh] max-w-full relative z-10 flex flex-col items-center 
                  justify-center text-center md:text-left pt-20 md:pt-30 gap-12 md:gap-18 overflow-hidden"
     >
-      {/* Imagen decorativa al fondo derecha */}
+      {/* Imagen decorativa al fondo derecha
       <div className="absolute right-[-40px] md:right-10 lg:right-65 top-30 sm:top-30 md:top-45 w-[340px] 
                       sm:w-[380px] md:w-[420px] lg:w-[520px] h-full z-0 pointer-events-none">
         <Image
@@ -57,7 +57,7 @@ export default function CindyBakeryShowcase() {
               "linear-gradient(to bottom, transparent 0%, white 60%, white 90%, transparent 100%)",
           }}
         />
-      </div>
+      </div> */}
 
       {/* Texto y botón */}
       <motion.div
@@ -66,12 +66,12 @@ export default function CindyBakeryShowcase() {
         animate={textInView ? "visible" : "hidden"}
         variants={containerVariants}
         className="relative z-10 flex flex-col justify-start md:items-start text-left w-[90%] 
-                    md:w-[88%] lg:w-[75%] mt-[-370px] md:mt-[-300px] lg-[-300px]"
+                    md:w-[88%] lg:w-[75%] mt-0 sm:mt-50 md:mt-20 lg:mt-70"
       >
         <motion.h1
           variants={itemVariants}
           custom="left"
-          className="text-4xl md:text-8xl mb-4 font-[Poppins] text-gray-700"
+          className="text-5xl sm:text-6xl md:text-7xl mb-4 font-[Poppins] text-gray-700"
         >
           Dulce Canela
         </motion.h1>
@@ -79,7 +79,7 @@ export default function CindyBakeryShowcase() {
         <motion.p
           variants={itemVariants}
           custom="left"
-          className="md:w-2xl text-sm md:text-xl text-gray-500 mb-8 font-light"
+          className="w-sm sm:w-md md:w-2xl text-sm md:text-xl text-gray-600 mb-8 font-light"
         >
           Endulzamos tus días con postres elaborados con los mejores ingredientes.
         </motion.p>
