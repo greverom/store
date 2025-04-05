@@ -16,7 +16,7 @@ export default function ProductosDestacados() {
 
   return (
     <section className="pb-22 md:pb-10 bg-white-100">
-      <div className="container mx-auto max-w-7xl px-2 md:px-4">
+      <div className="container mx-auto max-w-full px-2 md:px-4">
 
         <div className="overflow-x-auto pb-3">
           <div className="flex gap-0 md:gap-3 w-max px-3 md:px-0">

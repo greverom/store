@@ -4,11 +4,11 @@ import { useRef } from "react"
 import { motion, useInView, type Variants } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
-import ProductosDestacados from "@/components/belleza/productosDestacados"
+// import ProductosDestacados from "@/components/belleza/productosDestacados"
 
 export default function CindyBeautyShowcase() {
   const textRef = useRef(null)
-  const cardsRef = useRef(null)
+  // const cardsRef = useRef(null)
   const textInView = useInView(textRef, { amount: 0.15, once: false })
 
   const containerVariants: Variants = {
@@ -38,20 +38,23 @@ export default function CindyBeautyShowcase() {
   return (
     <section
       id="belleza"
-      className="container bg-white-100 mx-auto min-h-[90vh] max-w-full relative z-10 flex 
-             flex-col items-center justify-center text-center md:text-left pt-20 md:pt-30 gap-12 md:gap-18 
-             overflow-hidden overflow-y-auto hide-scrollbar"
+      className="container mx-auto min-h-[100vh] max-w-full relative flex flex-col items-center 
+                 justify-center text-center md:text-left pt-20 md:pt-30 gap-12 md:gap-18 overflow-hidden"
     >
-      <div className="absolute inset-0 z-0 -translate-y-10">
+      {/* Imagen decorativa a la derecha */}
+      <div className="absolute right-6 md:right-10 lg:right-60 top-30 sm:top-30 md:top-40 w-[300px] 
+                      sm:w-[380px] md:w-[420px] lg:w-[600px] h-full z-0 pointer-events-none">
         <Image
-          src="/images/image-beauty.png"
-          alt="Fondo belleza"
+          src="/images/image-beauty-sinfonde.png"
+          alt="Cosméticos decorativos"
           fill
           priority
-          className="object-cover w-full h-full pointer-events-none"
+          className="object-contain w-full h-full pointer-events-none opacity-90 scale-85"
           style={{
-            maskImage: "linear-gradient(to bottom, transparent 0%, white 95%, white 85%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, white 75%, white 80%, transparent 100%)",
+            maskImage:
+              "linear-gradient(to bottom, transparent 0%, white 0%, white 90%, transparent 100%)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, transparent 0%, white 0%, white 90%, transparent 100%)",
           }}
         />
       </div>
@@ -62,22 +65,21 @@ export default function CindyBeautyShowcase() {
         initial="hidden"
         animate={textInView ? "visible" : "hidden"}
         variants={containerVariants}
-        className="flex flex-col md:items-start text-left w-[90%] px-0 sm:px-4 md:px-0 md:w-[85%] lg:w-[90%] md:mb-0 md:ml-0 z-10"
+        className="relative z-10 flex flex-col justify-start md:items-start text-left w-[90%] 
+                    md:w-[88%] lg:w-[75%] mt-[-400px] md:mt-[-300px] lg-[-300px]"
       >
         <motion.h1
           variants={itemVariants}
           custom="left"
-          className="text-4xl md:text-6xl mb-4 pl-0 md:pl-[6%] bg-gradient-to-r tracking-tighter 
-                    font-[Poppins] text-gray-600"
+          className="text-4xl md:text-8xl mb-4 font-[Poppins] text-gray-700"
         >
-          Belleza 
+          Belleza
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
           custom="left"
-          className="w-[100%] md:w-3xl text-sm md:text-xl text-gray-500 mb-8 font-light mx-auto md:mx-0 
-                    pl-1 md:pl-[7%] text-left"
+          className="md:w-2xl text-sm md:text-xl text-gray-500 mb-8 font-light"
         >
           Cosméticos creados para potenciar tu brillo natural. Siente la elegancia en cada detalle.
         </motion.p>
@@ -85,22 +87,23 @@ export default function CindyBeautyShowcase() {
         <motion.div
           variants={itemVariants}
           custom="left"
-          className="pl-4 sm:pl-6 md:pl-[6%] md:ml-10 w-full md:w-auto"
+          className="w-full md:w-auto"
         >
           <Link
             href="/belleza/catalogo"
-            className="inline-block px-8 py-3 text-sm rounded-xl text-gray-600
-                      bg-white border border-gray-400 transition-all 
-                      duration-300 ease-in-out transform hover:scale-110"
+            className="inline-block px-8 py-3 text-sm rounded-xl text-white bg-[#A89EC9] 
+                        border border-[#998fc0] transition-all duration-300 ease-in-out transform 
+                        hover:scale-110 hover:bg-[#998fc0]"
           >
             Tienda
           </Link>
         </motion.div>
       </motion.div>
 
-      <div ref={cardsRef} className="w-full z-10">
+      {/* Productos
+      <div ref={cardsRef} className="w-full md:w-3xl lg:w-5xl relative z-10">
         <ProductosDestacados />
-      </div>
+      </div> */}
     </section>
   )
 }

@@ -10,7 +10,7 @@ type Props = {
   size?: "normal" | "small"
 }
 
-export default function AddToCartButton({ product, onClick, size = "normal" }: Props) {
+export default function AddToCartButton({ product, onClick, size = "small" }: Props) {
   const { addItem } = useCart()
 
   const handleAddToCart = (e: React.MouseEvent) => {
@@ -23,12 +23,12 @@ export default function AddToCartButton({ product, onClick, size = "normal" }: P
 
   const sizeStyles =
     size === "small"
-      ? "px-3 py-1 text-sm bg-white text-rose-400 hover:bg-rose-400 hover:text-white"
-      : "px-3 py-2 text-sm bg-white text-rose-400 hover:bg-rose-400 hover:text-white"
+      ? "px-2 py-1 text-sm  text-rose-400 hover:scale-105"
+      : "px-3 py-2 text-sm  text-rose-400 hover:scale-105"
 
   return (
     <button onClick={handleAddToCart} className={`${baseStyles} ${sizeStyles}`}>
-      <ShoppingCart className={size === "small" ? "w-4 h-4" : "w-5 h-5"} />
+      <ShoppingCart className={size === "small" ? "w-3 h-3" : "w-4 h-4"} />
       <span>{size === "small" ? "Agregar" : "Comprar"}</span>
     </button>
   )

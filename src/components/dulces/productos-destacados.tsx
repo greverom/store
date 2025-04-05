@@ -20,9 +20,9 @@ export default function DulcesDestacados() {
         {/* <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Dulces Destacados</h2> */}
 
         <div className="overflow-x-auto">
-          <div className="flex gap-6 md:gap-8 w-max px-2 md:px-0">
+          <div className="flex gap-6 md:gap-4 w-max px-2 md:px-0">
             {products.map((producto) => (
-              <div key={producto.idMeal} className="w-[170px] flex-shrink-0">
+              <div key={producto.idMeal} className="w-[155px] flex-shrink-0">
                 <ProductCardDulce product={producto} />
               </div>
             ))}

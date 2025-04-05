@@ -12,12 +12,12 @@ export default function ProductCardDulce({ product }: { product: DessertProduct 
 
   return (
     <div className="bg-white rounded-lg border border-gray-300 shadow-md overflow-hidden flex flex-col h-full">
-      <div className="relative h-45 w-full">
+      <div className="relative h-40 w-full">
         <Image
           src={product.strMealThumb}
           alt={product.strMeal}
           fill
-          className="object-cover rounded-t-lg opacity-90"
+          className="object-cover rounded-t-lg opacity-89"
           onError={() => setImageValid(false)}
           onLoadingComplete={(img) => {
             if (img.naturalWidth === 0) setImageValid(false)
@@ -30,7 +30,7 @@ export default function ProductCardDulce({ product }: { product: DessertProduct 
         {/* <p className="text-gray-600 text-sm mb-5 line-clamp-2">Producto artesanal</p> */}
 
         <div className="flex justify-between items-center">
-          <span className="text-md font-bold">$12.00</span>
+          <span className="text-sm font-bold">$12.00</span>
           <AddToCartButton
             product={{
               id: Number(product.idMeal),

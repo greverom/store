@@ -4,13 +4,11 @@ import { motion, useInView, type Variants } from "framer-motion"
 import { useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import DulcesDestacados from "../dulces/productos-destacados"
-
+// import DulcesDestacados from "../dulces/productos-destacados"
 
 export default function CindyBakeryShowcase() {
   const textRef = useRef(null)
-  const cardsRef = useRef(null)
-
+  // const cardsRef = useRef(null)
   const textInView = useInView(textRef, { amount: 0.2, once: false })
 
   const containerVariants: Variants = {
@@ -40,21 +38,23 @@ export default function CindyBakeryShowcase() {
   return (
     <section
       id="dulces"
-      className="container bg-white-100 mx-auto min-h-[90vh] max-w-full relative z-10 flex 
-                flex-col items-center justify-center text-center md:text-left md:pt-30 gap-12 md:gap-18 
-                overflow-hidden overflow-y-auto"
+      className="container mx-auto min-h-[100vh] max-w-full relative z-10 flex flex-col items-center 
+                 justify-center text-center md:text-left pt-20 md:pt-30 gap-12 md:gap-18 overflow-hidden"
     >
-      {/* Imagen de fondo */}
-      <div className="absolute inset-0 z-0 -translate-y-30 md:-translate-y-50">
+      {/* Imagen decorativa al fondo derecha */}
+      <div className="absolute right-6 md:right-10 lg:right-65 top-30 sm:top-30 md:top-45 w-[300px] 
+                      sm:w-[380px] md:w-[420px] lg:w-[520px] h-full z-0 pointer-events-none">
         <Image
-          src="/images/image-bakery.png"
-          alt="Fondo Dulce Canela"
+          src="/images/imagen-dulce-no-fondo.png"
+          alt="Imagen decorativa dulces"
           fill
           priority
-          className="object-cover w-full h-full pointer-events-none opacity-70"
+          className="object-contain w-full h-full pointer-events-none scale-100"
           style={{
-            maskImage: "linear-gradient(to bottom, transparent 0%, white 95%, white 28%, transparent 98%)",
-            WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, white 75%, white 65%, transparent 100%)",
+            maskImage:
+              "linear-gradient(to bottom, transparent 0%, white 60%, white 90%, transparent 100%)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, transparent 0%, white 60%, white 90%, transparent 100%)",
           }}
         />
       </div>
@@ -65,14 +65,13 @@ export default function CindyBakeryShowcase() {
         initial="hidden"
         animate={textInView ? "visible" : "hidden"}
         variants={containerVariants}
-        className="flex flex-col md:items-start text-left w-[90%] px-0 sm:px-4 md:px-0 md:w-[85%] lg:w-[90%] 
-                    md:mb-15 md:ml-0 z-10"
+        className="relative z-10 flex flex-col justify-start md:items-start text-left w-[90%] 
+                    md:w-[88%] lg:w-[75%] mt-[-380px] md:mt-[-300px] lg-[-300px]"
       >
         <motion.h1
           variants={itemVariants}
           custom="left"
-           className="text-4xl md:text-6xl mb-4 pl-0 md:pl-[6%] bg-gradient-to-r tracking-tighter 
-                    font-[Poppins] text-gray-600"
+          className="text-4xl md:text-8xl mb-4 font-[Poppins] text-gray-700"
         >
           Dulce Canela
         </motion.h1>
@@ -80,8 +79,7 @@ export default function CindyBakeryShowcase() {
         <motion.p
           variants={itemVariants}
           custom="left"
-          className="w-full text-sm md:text-xl text-gray-700 mb-8 font-light mx-auto md:mx-0 pl-1 sm:pl-3 
-                    md:pl-[6%] text-left"
+          className="md:w-2xl text-sm md:text-xl text-gray-500 mb-8 font-light"
         >
           Endulzamos tus días con postres elaborados con los mejores ingredientes.
         </motion.p>
@@ -89,23 +87,23 @@ export default function CindyBakeryShowcase() {
         <motion.div
           variants={itemVariants}
           custom="left"
-          className="pl-4 sm:pl-6 md:pl-[6%] md:ml-10 w-full md:w-auto"
+          className="w-full md:w-auto"
         >
           <Link
             href="/dulces"
-            className="inline-block px-8 py-3 text-sm rounded-xl text-gray-600
-                      bg-white border border-gray-400 transition-all 
-                      duration-300 ease-in-out transform hover:scale-110"
+            className="inline-block px-8 py-3 text-sm rounded-xl text-white
+                       bg-[#D87C63] border border-[#d2745b] transition-all 
+                       duration-300 ease-in-out transform hover:scale-110 hover:bg-[#c7644f]"
           >
             Tienda
           </Link>
         </motion.div>
       </motion.div>
 
-      {/* Productos destacados */}
-      <div ref={cardsRef} className="w-full z-10">
+      {/* Productos destacados
+      <div ref={cardsRef} className="w-full md:w-3xl lg:w-5xl relative z-10">
         <DulcesDestacados />
-      </div>
+      </div> */}
     </section>
   )
 }
