@@ -38,7 +38,7 @@ export default function CindyBakeryShowcase() {
   return (
     <section
       id="dulces"
-      className="container mx-auto min-h-[100vh] max-w-full relative z-10 flex flex-col items-center 
+      className="container mx-auto min-h-[80vh] md:min-h-[100vh] max-w-full relative z-10 flex flex-col items-center 
                  justify-center text-center md:text-left pt-20 md:pt-30 gap-12 md:gap-18 overflow-hidden"
     >
       {/* Imagen decorativa al fondo derecha */}
@@ -66,7 +66,7 @@ export default function CindyBakeryShowcase() {
         animate={textInView ? "visible" : "hidden"}
         variants={containerVariants}
         className="relative z-10 flex flex-col justify-start md:items-start text-left w-[90%] 
-                    md:w-[88%] lg:w-[75%] mt-[-380px] md:mt-[-300px] lg-[-300px]"
+                    md:w-[88%] lg:w-[75%] mt-[-370px] md:mt-[-300px] lg-[-300px]"
       >
         <motion.h1
           variants={itemVariants}

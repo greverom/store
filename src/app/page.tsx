@@ -10,7 +10,7 @@ export default function HomePage() {
         <Hero2 />
         
         <div className="absolute right-[-95px] sm:right-[-85px] md:right-[-40px] lg:right-[-50px] top-[310px] 
-                sm:top-[270px] md:top-[310px] lg:top-[250px] w-[330px] sm:w-[400px] md:w-[450px] lg:w-[580px] 
+                sm:top-[270px] md:top-[310px] lg:top-[280px] w-[330px] sm:w-[400px] md:w-[450px] lg:w-[590px] 
                 z-30 pointer-events-none">
           <Image
             src="/images/image-hero-nofondo.png"
