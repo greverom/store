@@ -42,7 +42,7 @@ export default function CindyBeautyShowcase() {
                  justify-center text-center md:text-left pt-20 md:pt-30 gap-12 md:gap-18 overflow-hidden"
     >
       {/* Imagen decorativa a la derecha */}
-      <div className="absolute right-[-95px] md:right-10 lg:right-60 top-15 sm:top-30 md:top-40 w-[420px] 
+      <div className="absolute right-[-95px] md:right-10 lg:right-60 top-33 sm:top-30 md:top-40 w-[400px] 
                       sm:w-[380px] md:w-[420px] lg:w-[600px] h-full z-0 pointer-events-none">
         <Image
           src="/images/image-beauty-sinfonde.png"
@@ -66,7 +66,7 @@ export default function CindyBeautyShowcase() {
         animate={textInView ? "visible" : "hidden"}
         variants={containerVariants}
         className="relative z-10 flex flex-col justify-start md:items-start text-left w-[90%] 
-                    md:w-[88%] lg:w-[75%] mt-[-370px] md:mt-[-300px] lg-[-300px]"
+                    md:w-[88%] lg:w-[75%] mt-[-300px] md:mt-[-300px] lg-[-300px]"
       >
         <motion.h1
           variants={itemVariants}

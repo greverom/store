@@ -42,7 +42,7 @@ export default function CindyBakeryShowcase() {
                  justify-center text-center md:text-left pt-20 md:pt-30 gap-12 md:gap-18 overflow-hidden"
     >
       {/* Imagen decorativa al fondo derecha */}
-      <div className="absolute right-6 md:right-10 lg:right-65 top-30 sm:top-30 md:top-45 w-[300px] 
+      <div className="absolute right-[-40px] md:right-10 lg:right-65 top-30 sm:top-30 md:top-45 w-[340px] 
                       sm:w-[380px] md:w-[420px] lg:w-[520px] h-full z-0 pointer-events-none">
         <Image
           src="/images/imagen-dulce-no-fondo.png"

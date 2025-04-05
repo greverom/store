@@ -59,17 +59,17 @@ export default function HeroGeometric({
   }, [phrases.length])
 
   return (
-    <div className="relative w-full min-h-[100vh] flex items-center 
+    <div className="relative w-full min-h-[90vh] md:min-h-[100vh] flex items-center 
                     justify-center overflow-hidden">
       
       {/* Contenido principal */}
-      <div className="relative z-10 container mx-auto px-4 md:px-6 -mt-107">
+      <div className="relative z-10 container mx-auto px-4 md:px-6 -mt-90">
         <div className="max-w-8xl mx-auto text-center">
           <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold mb-6 md:mb-5 tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold mb-6 md:mb-5 tracking-tight">
               <span className="bg-clip-text text-transparent bg-gradient-to-b from-gray-700 to-gray-400">{title1}</span>
               <br />
-              <span className={cn("bg-clip-text text-6xl sm:text-7xl md:text-8xl lg:text-8xl text-[#577090]")}>
+              <span className={cn("bg-clip-text text-5xl sm:text-6xl md:text-8xl lg:text-8xl text-[#d7752f]")}>
                 {title2}
               </span>
             </h1>
