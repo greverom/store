@@ -18,21 +18,21 @@ export default function PromoCarousel() {
   if (!mounted) return null
 
   return (
-    <div className="w-full bg-gray-100 text-gray-500 py-3 overflow-hidden relative">
+    <div className="absolute bg-red-100 top-0 left-0 w-full h-full flex items-center overflow-hidden">
       <style jsx global>{`
         @keyframes scrollMarquee {
           0% {
             transform: translateX(0%);
           }
           100% {
-            transform: translateX(-192%);
+            transform: translateX(-190%);
           }
         }
       `}</style>
 
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
         <div
-          className="flex whitespace-nowrap animate-[scrollMarquee_10s_linear_infinite]"
+          className="flex whitespace-nowrap animate-[scrollMarquee_18s_linear_infinite]"
           style={{ minWidth: "150%" }}
         >
           {[...phrases, ...phrases].map((text, idx) => (

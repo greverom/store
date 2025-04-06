@@ -38,8 +38,8 @@ export default function CindyBeautyShowcase() {
   return (
     <section
       id="belleza"
-      className="container mx-auto min-h-[500px] sm:min-h-[600px] md:h-[720px] lg:h-[800px] max-w-full relative flex flex-col items-center 
-                 justify-center text-center md:text-left pt-20 md:pt-30 gap-12 md:gap-18 overflow-hidden"
+      className="container mx-auto py-25 sm:py-15 md:py-35 lg:py-25  max-w-full relative flex flex-col items-center 
+                 justify-center text-center md:text-left pt-20 md:pt-30 overflow-hidden"
     >
       {/* Imagen decorativa a la derecha
       <div className="absolute right-[-95px] md:right-10 lg:right-60 top-33 sm:top-30 md:top-70 w-[400px] 
@@ -66,7 +66,7 @@ export default function CindyBeautyShowcase() {
         animate={textInView ? "visible" : "hidden"}
         variants={containerVariants}
         className="relative z-10 flex flex-col justify-start md:items-start text-left w-[90%] 
-                   sm:w-[90%] md:w-[88%] lg:w-[75%] mt-10 sm:mt-70 md:mt-30 lg:mt-85"
+                   sm:w-[90%] md:w-[88%] lg:w-[75%] mt-60 sm:mt-70 md:mt-15 lg:mt-10"
       >
         <motion.h1
           variants={itemVariants}
@@ -79,7 +79,7 @@ export default function CindyBeautyShowcase() {
         <motion.p
           variants={itemVariants}
           custom="left"
-          className="w-sm sm:w-md md:w-2xl text-sm md:text-xl text-gray-600 mb-8 font-light"
+          className="w-xs sm:w-md md:w-2xl text-sm md:text-lg text-gray-600 mb-8 font-light"
         >
           Cosméticos creados para potenciar tu brillo natural. Siente la elegancia en cada detalle.
         </motion.p>
@@ -91,9 +91,9 @@ export default function CindyBeautyShowcase() {
         >
           <Link
             href="/belleza/catalogo"
-            className="inline-block px-8 py-3 text-sm rounded-xl text-white bg-[#A89EC9] 
-                        border border-[#998fc0] transition-all duration-300 ease-in-out transform 
-                        hover:scale-110 hover:bg-[#998fc0]"
+            className="inline-block px-8 py-3 text-sm rounded-xl text-white bg-[#5a504f] 
+                        border border-[#8e7dd1] transition-all duration-300 ease-in-out transform 
+                        hover:scale-110 hover:bg-[#322e2e]"
           >
             Tienda
           </Link>

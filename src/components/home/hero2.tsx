@@ -59,11 +59,11 @@ export default function HeroGeometric({
   }, [phrases.length])
 
   return (
-    <div className="relative w-full min-h-[50vh] sm:min-h-[40vh] md:min-h-[50vh] lg:min-h-[60vh] flex items-center 
+    <div className="relative w-full min-h-[50vh] sm:min-h-[40vh] md:min-h-[70vh] lg:min-h-[90vh] flex items-center 
                     justify-center overflow-hidden">
       
       {/* Contenido principal */}
-      <div className="relative z-10 container mx-auto px-4 md:px-6 -mt-20 sm:-mt-10 md:-mt-10 lg:-mt-30">
+      <div className="relative z-10 container mx-auto px-4 md:px-6 -mt-30 sm:-mt-10 md:-mt-60 lg:-mt-100">
         <div className="max-w-8xl mx-auto text-center">
           <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold mb-2 md:mb-5 tracking-tight">
@@ -83,7 +83,8 @@ export default function HeroGeometric({
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
           >
-            <p className=" text-md sm:text-lg md:text-md text-gray-500 leading-relaxed font-light tracking-wide max-w-3xl mx-auto px-4 text-center h-[60px] flex items-center justify-center">
+            <p className="text-sm sm:text-lg md:text-md text-gray-500 leading-relaxed font-light tracking-wide 
+                max-w-md mx-auto px-4 text-center flex items-center justify-center">
               {phrases[currentSlide].subtitle}
             </p>
           </motion.div>

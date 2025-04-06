@@ -38,8 +38,8 @@ export default function CindyBakeryShowcase() {
   return (
     <section
       id="dulces"
-      className="container mx-auto min-h-[70vh] sm:min-h-[80vh] md:min-h-[100vh] max-w-full relative z-10 flex flex-col items-center 
-                 justify-center text-center md:text-left pt-20 md:pt-30 gap-12 md:gap-18 overflow-hidden"
+      className="container mx-auto py-12 sm:py-25 mg:py-5 lg:py-20 max-w-full relative z-10 flex flex-col items-center 
+                 justify-center text-center md:text-left pt-20 md:pt-30 md:gap-18 overflow-hidden"
     >
       {/* Imagen decorativa al fondo derecha
       <div className="absolute right-[-40px] md:right-10 lg:right-65 top-30 sm:top-30 md:top-45 w-[340px] 
@@ -66,7 +66,7 @@ export default function CindyBakeryShowcase() {
         animate={textInView ? "visible" : "hidden"}
         variants={containerVariants}
         className="relative z-10 flex flex-col justify-start md:items-start text-left w-[90%] 
-                    md:w-[88%] lg:w-[75%] mt-0 sm:mt-50 md:mt-20 lg:mt-70"
+                    md:w-[88%] lg:w-[75%] mt-80 sm:mt-50 md:mt-20 lg:mt-20"
       >
         <motion.h1
           variants={itemVariants}
@@ -79,7 +79,7 @@ export default function CindyBakeryShowcase() {
         <motion.p
           variants={itemVariants}
           custom="left"
-          className="w-sm sm:w-md md:w-2xl text-sm md:text-xl text-gray-600 mb-8 font-light"
+          className="w-xs sm:w-md md:w-2xl text-sm md:text-xl text-gray-600 mb-8 font-light"
         >
           Endulzamos tus días con postres elaborados con los mejores ingredientes.
         </motion.p>

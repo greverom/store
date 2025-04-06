@@ -46,7 +46,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contacto" ref={ref} className="bg-gray-100 py-22 md:py-24 min-h-[100vh]">
+    <section id="contacto" ref={ref} className="bg-gray-100 pt-32 md:pt-24 mb-10">
       <div className="container mx-auto px-4">
         {/* Título y subtítulo */}
         <motion.div
@@ -55,10 +55,10 @@ export default function ContactSection() {
           variants={containerVariants}
           className="text-center mb-12"
         >
-          <motion.h2 variants={itemVariants} className="text-3xl font-bold text-gray-800 mb-2">
+          <motion.h2 variants={itemVariants} className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
             Contáctanos
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-gray-600 max-w-2xl mx-auto">
+          <motion.p variants={itemVariants} className="text-gray-600 w-xs sm:w-md md:w-2xl mx-auto text-sm md:text-3xl">
             Estamos aquí para ayudarte. Envíanos un mensaje.
           </motion.p>
         </motion.div>
@@ -71,7 +71,7 @@ export default function ContactSection() {
           className="grid md:grid-cols-1 lg:grid-cols-2 gap-10 w-[100%] md:w-[80%] lg:w-[90%] mx-auto"
         >
           {/* Formulario */}
-          <motion.div variants={itemVariants} className="bg-white rounded-lg p-8">
+          <motion.div variants={itemVariants} className="bg-gray-100 rounded-lg p-3">
             <h3 className="text-xl font-semibold text-gray-800 mb-6">Envíanos un mensaje</h3>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
@@ -85,7 +85,7 @@ export default function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition"
+                  className="w-full px-2 py-2 border text-sm border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-200 focus:border-transparent transition"
                   placeholder="Tu nombre"
                 />
               </div>
@@ -100,7 +100,7 @@ export default function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition"
+                  className="w-full px-2 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-200 focus:border-transparent transition"
                   placeholder="tu@email.com"
                 />
               </div>
@@ -115,13 +115,13 @@ export default function ContactSection() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition"
+                  className="w-full px-2 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-200 focus:border-transparent transition"
                   placeholder="¿Cómo podemos ayudarte?"
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-4 rounded-md transition duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                className="w-full text-sm md:text-md bg-[#4b4848] hover:bg-[#3e3d3d] text-gray-100 font-medium py-4 px-4 rounded-md transition duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
               >
                 Enviar mensaje
               </button>
@@ -129,19 +129,16 @@ export default function ContactSection() {
           </motion.div>
 
           {/* Información */}
-          <motion.div variants={itemVariants} className="bg-white rounded-lg p-8">
+          <motion.div variants={itemVariants} className="bg-gray-100 rounded-lg p-2">
             <h3 className="text-xl font-semibold text-gray-800 mb-6">Información de contacto</h3>
             <div className="space-y-6">
+              
               <div className="flex items-start">
                 <MapPin className="text-pink-500 mr-4 mt-1 flex-shrink-0" size={20} />
                 <div>
                   <h4 className="font-medium text-gray-800 mb-1">Dirección</h4>
-                  <p className="text-gray-500">
-                    Av. Cosmética 123
-                    <br />
-                    Colonia Belleza, CP 12345
-                    <br />
-                    Ciudad de México, México
+                  <p className="text-gray-500 text-sm md:text-md">
+                    Urb. Portal de los Bosques
                   </p>
                 </div>
               </div>
@@ -150,7 +147,7 @@ export default function ContactSection() {
                 <Phone className="text-pink-500 mr-4 mt-1 flex-shrink-0" size={20} />
                 <div>
                   <h4 className="font-medium text-gray-800 mb-1">Teléfono</h4>
-                  <p className="text-gray-500">+52 (55) 1234 5678</p>
+                  <p className="text-gray-500 text-sm md:text-md">0986964584</p>
                 </div>
               </div>
 
@@ -158,7 +155,7 @@ export default function ContactSection() {
                 <Mail className="text-pink-500 mr-4 mt-1 flex-shrink-0" size={20} />
                 <div>
                   <h4 className="font-medium text-gray-800 mb-1">Email</h4>
-                  <p className="text-gray-500">contacto@cosmeticastore.com</p>
+                  <p className="text-gray-500 text-sm md:text-md">cindygarcia@gmail.com</p>
                 </div>
               </div>
 
@@ -166,7 +163,7 @@ export default function ContactSection() {
                 <Clock className="text-pink-500 mr-4 mt-1 flex-shrink-0" size={20} />
                 <div>
                   <h4 className="font-medium text-gray-800 mb-1">Horarios de atención</h4>
-                  <p className="text-gray-500">
+                  <p className="text-gray-500 text-sm md:text-md">
                     Lunes - Viernes: 10:00 AM - 8:00 PM
                     <br />
                     Sábado: 10:00 AM - 6:00 PM
@@ -193,7 +190,7 @@ export default function ContactSection() {
             variants={itemVariants}
             className="flex justify-center space-x-4"
           >
-            <a href="#" className="text-pink-500 hover:text-pink-600 transition" aria-label="Instagram">
+            <a href="#" className="text-pink-400 transition" aria-label="Instagram">
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 2 .2 2.5.4.6.2 1 .4 1.5.9.5.5.7.9.9 1.5.2.5.3 1.3.4 2.5.1 1.3.1 
                 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 2-.4 2.5-.2.6-.4 1-.9 1.5s-.9.7-1.5.9c-.5.2-1.3.3-2.5.4-1.3.1-1.7.1-4.9.1s-3.6 
@@ -206,14 +203,14 @@ export default function ContactSection() {
               </svg>
             </a>
             {/* Facebook */}
-            <a href="#" className="text-pink-500 hover:text-pink-600 transition" aria-label="Facebook">
+            <a href="#" className="text-pink-400 transition" aria-label="Facebook">
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 5 3.66 9.13 8.44 9.88v-6.99h-2.54V12h2.54V9.8c0-2.5 
                 1.49-3.88 3.78-3.88 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99C18.34 21.13 22 17 22 12z" />
               </svg>
             </a>
             {/* Twitter */}
-            <a href="#" className="text-pink-500 hover:text-pink-600 transition" aria-label="Twitter">
+            <a href="#" className="text-pink-400 transition" aria-label="Twitter">
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8.29 20.25c7.55 0 11.67-6.25 11.67-11.67v-.53A8.35 8.35 0 0 0 22 5.92a8.19 8.19 0 0 1-2.36.65A4.1 4.1 0 0 0 21.45 4a8.23 
                 8.23 0 0 1-2.6.99A4.1 4.1 0 0 0 16 3a4.11 4.11 0 0 0-4.1 4.1c0 .32.04.63.1.93A11.66 11.66 0 0 1 3.2 4.78a4.07 4.07 0 0 0-.55 2.07A4.1 
